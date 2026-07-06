@@ -13,6 +13,12 @@ Page structure: Hero → Case studies (`#cases`) → Process + packages (`#proce
 Pending `[PLACEHOLDER]`s before launch (search the codebase for `PLACEHOLDER`):
 LinkedIn URL (`lib/site.ts`), two foreign-client case studies,
 package prices (`lib/dictionaries.ts`), and the founder photo (`components/About.tsx`).
+Also pending: the real GA4 measurement ID (`NEXT_PUBLIC_GA_ID` in `.env.example`),
+the legal entity name and jurisdiction backing the privacy policy, a
+dedicated DPO/privacy contact (may reuse `CONTACT_EMAIL` or need its own),
+the GA4 and cookie-consent record retention periods, and the privacy
+policy's effective/last-updated date — all in the draft copy under
+`lib/dictionaries.ts`'s `privacy` key (see `docs/plans/analytics-cookie-consent.md`).
 
 ## Run
 

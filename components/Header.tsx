@@ -24,7 +24,9 @@ export default function Header({
       </Link>
       <nav aria-label={dict.nav.ariaMain}>
         {links.map(([href, label]) => (
-          <a key={href} href={href}>
+          // Prefixed with /${lang} (not a bare "#hash") so the links still
+          // resolve correctly from other pages under [lang] (e.g. /privacy).
+          <a key={href} href={`/${lang}${href}`}>
             {label}
           </a>
         ))}
@@ -36,7 +38,7 @@ export default function Header({
           </summary>
           <div className="menu-panel">
             {links.map(([href, label]) => (
-              <a key={href} href={href}>
+              <a key={href} href={`/${lang}${href}`}>
                 {label}
               </a>
             ))}

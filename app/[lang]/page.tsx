@@ -84,7 +84,7 @@ export default async function Page({
         <About dict={dict} />
         <Contact dict={dict} />
       </main>
-      <Footer dict={dict} />
+      <Footer dict={dict} lang={lang} />
     </>
   );
 }

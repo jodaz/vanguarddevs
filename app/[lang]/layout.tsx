@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Anton, Archivo, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
+import ConsentBanner from "@/components/ConsentBanner";
 import { getDictionary } from "@/lib/dictionaries";
 import { isLocale, locales, siteUrl, type Locale } from "@/lib/i18n";
 import "../globals.css";
@@ -93,13 +94,23 @@ export default async function LangLayout({
 }) {
   const { lang } = await params;
   if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
 
   return (
     <html
       lang={lang satisfies Locale}
       className={`${anton.variable} ${archivo.variable} ${plexMono.variable}`}
     >
-      <body>{children}</body>
+      <body>
+        {children}
+        <ConsentBanner
+          lang={lang}
+          message={dict.cookieBanner.message}
+          accept={dict.cookieBanner.accept}
+          reject={dict.cookieBanner.reject}
+          policyLinkLabel={dict.cookieBanner.policyLinkLabel}
+        />
+      </body>
     </html>
   );
 }

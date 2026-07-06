@@ -766,3 +766,127 @@ footer {
   padding: 18px var(--pad);
   color: var(--steel);
 }
+
+footer a:hover,
+footer a:focus-visible {
+  color: var(--signal-text);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cookie-settings {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: inherit;
+  font-family: var(--font-mono), monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: color 0.15s;
+}
+
+.cookie-settings:hover,
+.cookie-settings:focus-visible {
+  color: var(--signal-text);
+}
+
+/* ---------- legal (privacy policy) ---------- */
+.sec-head h1 {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: clamp(30px, 4.4vw, 58px);
+  line-height: 1;
+}
+
+.legal-body {
+  padding: var(--pad);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(26px, 3.4vw, 44px);
+  max-width: 78ch;
+}
+
+.legal-body h3 {
+  font-family: var(--font-display), sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.legal-body p {
+  color: var(--steel);
+  max-width: 70ch;
+}
+
+/* ---------- cookie consent banner ---------- */
+.consent-banner {
+  position: fixed;
+  left: var(--pad);
+  right: var(--pad);
+  bottom: var(--pad);
+  z-index: 100;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 18px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 22px var(--pad);
+  background: var(--paper);
+  border: var(--rule);
+  box-shadow: 0 12px 32px rgba(22, 18, 31, 0.24);
+}
+
+.consent-banner svg {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  color: var(--signal-text);
+}
+
+.consent-banner p {
+  flex: 1 1 260px;
+  font-size: 14.5px;
+  color: var(--steel);
+}
+
+.consent-banner p a {
+  color: var(--signal-text);
+  text-decoration: underline;
+}
+
+.consent-actions {
+  display: flex;
+  flex: none;
+  gap: 10px;
+}
+
+.consent-actions .btn {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  cursor: pointer;
+}
+
+.consent-actions .btn.solid {
+  background: var(--signal);
+}
+
+@media (max-width: 480px) {
+  .consent-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    padding: 20px;
+  }
+}

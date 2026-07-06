@@ -71,6 +71,10 @@ const DotField = memo(({
     if (!ctx) return;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    // Patch (vanguarddevs): on touch-only devices (no hover pointer) the cursor
+    // never moves, so the rAF loop would redraw an identical frame forever —
+    // take the same single-static-frame path as prefers-reduced-motion.
+    const staticFrame = reducedMotion || window.matchMedia('(hover: none)').matches;
     let resizeTimer: ReturnType<typeof setTimeout>;
 
     function resize() {
@@ -97,6 +101,10 @@ const DotField = memo(({
       };
 
       buildDots(w, h);
+
+      // Patch (vanguarddevs): static path — resizing clears the canvas bitmap,
+      // so repaint the single frame (no loop to do it otherwise).
+      if (staticFrame) tick();
     }
 
     function buildDots(w: number, h: number) {
@@ -136,7 +144,8 @@ const DotField = memo(({
       m.prevY = m.y;
     }
 
-    const speedInterval = setInterval(updateMouseSpeed, 20);
+    // Patch (vanguarddevs): no interval on the static path — nothing consumes it
+    const speedInterval = staticFrame ? undefined : setInterval(updateMouseSpeed, 20);
 
     let frameCount = 0;
 
@@ -234,14 +243,15 @@ const DotField = memo(({
 
       ctx!.fill();
 
-      // reduced motion: render the static grid once, no animation loop
-      if (!reducedMotion) rafRef.current = requestAnimationFrame(tick);
+      // reduced motion / touch-only: render the static grid once, no animation loop
+      if (!staticFrame) rafRef.current = requestAnimationFrame(tick);
     }
 
     doResize();
     window.addEventListener('resize', resize);
-    if (!reducedMotion) window.addEventListener('mousemove', onMouseMove, { passive: true });
-    rafRef.current = requestAnimationFrame(tick);
+    if (!staticFrame) window.addEventListener('mousemove', onMouseMove, { passive: true });
+    // static path gets its initial paint from doResize() → tick() above
+    if (!staticFrame) rafRef.current = requestAnimationFrame(tick);
 
     rebuildRef.current = () => {
       const { w, h } = sizeRef.current;

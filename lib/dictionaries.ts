@@ -27,6 +27,7 @@ export interface Dictionary {
     ariaLang: string;
   };
   hero: {
+    ariaLabel: string;
     kicker: string;
     region: string;
     headlineStart: string;
@@ -81,6 +82,7 @@ const es: Dictionary = {
     ariaLang: "Idioma / Language",
   },
   hero: {
+    ariaLabel: "Introducción",
     kicker: "VanguardDevs — Estudio de producto",
     region: "USA ▶ LATAM",
     headlineStart:
@@ -183,6 +185,7 @@ const en: Dictionary = {
     ariaLang: "Idioma / Language",
   },
   hero: {
+    ariaLabel: "Intro",
     kicker: "VanguardDevs — Product studio",
     region: "USA ▶ LATAM",
     headlineStart:

@@ -21,8 +21,8 @@ export default function Process({ dict }: { dict: Dictionary }) {
         <span className="mono">{dict.process.packagesIntro}</span>
       </div>
       <div className="packages">
-        {dict.process.packages.map((pkg, i) => (
-          <div className={pkg.featured ? "pkg featured" : "pkg"} key={i}>
+        {dict.process.packages.map((pkg) => (
+          <div className={pkg.featured ? "pkg featured" : "pkg"} key={pkg.title}>
             <span className="mark" aria-hidden="true" />
             <p>{pkg.title}</p>
           </div>

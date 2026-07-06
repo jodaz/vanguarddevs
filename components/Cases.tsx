@@ -7,7 +7,7 @@ export default function Cases({ dict }: { dict: Dictionary }) {
       <SectionHead heading={dict.cases.heading} label={dict.cases.secLabel} />
       <div className="services">
         {dict.cases.items.map((item, i) => (
-          <article className="svc" key={item.name} tabIndex={0}>
+          <article className="svc" key={item.name}>
             <div className="code mono">
               <span>{String(i + 1).padStart(2, "0")}</span>
               <span>{item.tag}</span>
@@ -20,7 +20,8 @@ export default function Cases({ dict }: { dict: Dictionary }) {
               target="_blank"
               rel="noopener"
             >
-              {new URL(item.url).hostname} ▶
+              {new URL(item.url).hostname}{" "}
+              <span aria-hidden="true">▶</span>
             </a>
           </article>
         ))}

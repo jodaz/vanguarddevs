@@ -25,10 +25,19 @@ Content and structure are fully decoupled:
 - **`lib/site.ts`** holds external links (Calendly, LinkedIn, email, Instagram). Some are still `PLACEHOLDER` values — search the repo for `PLACEHOLDER` to see what's pending before launch.
 - **`app/[lang]/`** is the root layout segment (there is intentionally no `app/layout.tsx` — the `[lang]` layout renders `<html lang>`). Both pages are SSG via `generateStaticParams` with `dynamicParams = false`. `generateMetadata` in the layout emits per-locale canonical/hreflang/OG tags; `page.tsx` composes the section components and inlines JSON-LD (`ProfessionalService` + `WebSite` + `WebPage`).
 - **`middleware.ts`** only matches `/`: it 307-redirects to `/es` or `/en` from `Accept-Language` (Spanish wins on ambiguity and when the header is empty). `/es` and `/en` are the canonical indexable URLs; never make `/` serve content.
-- **`components/`** are all server components — the site ships no client-side JS of its own (hover/anchor behavior is pure CSS). Keep it that way; don't add `"use client"` for anything achievable with CSS or links.
+- **`components/`** are all server components, with ONE exception: the vendored `components/reactbits/DotField` (hero canvas animation) is the site's only client JS. Keep it that way; don't add `"use client"` for anything achievable with CSS or links. Vendored ReactBits components (`components/reactbits/`) are fetched from their shadcn-style registry with curl (the jsrepo CLI doesn't work with it) and patched minimally with documented comments.
 - **`app/globals.css`** holds the entire brand system keyed to CSS variables (`--paper`, `--ink`, `--signal`, `--signal-text`, `--on-signal`, `--steel`, `--tint`, `--rule`, `--pad`) and font variables set by `next/font` in the layout (`--font-display` Anton, `--font-body` Archivo, `--font-mono` IBM Plex Mono). The site is **dark by default** (brand guide's inverse scheme: `--paper` is Obsidian #16121F as surface, `--ink` is Fog #ECEAF1 as type/structure). Semantics, not colors: `--paper` = surface, `--ink` = type/structure, `--signal` = violet backgrounds, `--signal-text` = violet-as-text on dark (#9D7BFF), `--on-signal` = text over violet. Section components reuse shared class patterns (`.sec-head`, `.svc`, `.mono`, `.mark`, `.btn`).
 - **Page structure** (fixed by the owner): Hero → Case studies (`#cases`) → Process + packages (`#process`) → About founder (`#about`) → Contact (`#contact`). Single repeated CTA (book a call via Calendly); no forms.
 - `design-reference/` contains the original static HTML design — reference only, not served.
+
+## Project agents (`.claude/agents/`)
+
+Delegate recurring work to these instead of doing it inline:
+
+- **copy-editor** — any content/copy/link change (knows the owner rules and ES/EN parity).
+- **seo-auditor** — read-only SEO audit: metadata, hreflang, JSON-LD, sitemap, redirects, OG images.
+- **visual-qa** — after design/CSS changes: Chrome screenshots of both locales at desktop + mobile, overflow/animation/console checks.
+- **developer** — refactors and code changes; knows the architecture invariants (server-components-only, dict-driven content, semantic CSS tokens).
 
 ## Copy rules (owner requirements — do not violate)
 

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anton, Archivo, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import { getDictionary } from "@/lib/dictionaries";
@@ -27,6 +27,10 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const dynamicParams = false;
+
+export const viewport: Viewport = {
+  themeColor: "#16121F",
+};
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));

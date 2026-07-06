@@ -1,9 +1,26 @@
+import DotField from "@/components/reactbits/DotField/DotField";
 import type { Dictionary } from "@/lib/dictionaries";
 import { CALENDLY_URL } from "@/lib/site";
 
 export default function Hero({ dict }: { dict: Dictionary }) {
   return (
     <section className="hero" aria-label="Intro">
+      <div className="hero-bg" aria-hidden="true">
+        <DotField
+          dotRadius={1.5}
+          dotSpacing={14}
+          bulgeStrength={67}
+          glowRadius={160}
+          sparkle={false}
+          waveAmplitude={0}
+          cursorRadius={500}
+          cursorForce={0.1}
+          bulgeOnly
+          gradientFrom="#A855F7"
+          gradientTo="#B497CF"
+          glowColor="#120F17"
+        />
+      </div>
       <div className="coords mono">
         <span>{dict.hero.kicker}</span>
         <span>{dict.hero.region}</span>

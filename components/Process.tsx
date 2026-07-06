@@ -1,10 +1,20 @@
+import GlitchText from "@/components/reactbits/GlitchText/GlitchText";
 import type { Dictionary } from "@/lib/dictionaries";
 
 export default function Process({ dict }: { dict: Dictionary }) {
   return (
     <section id="process" aria-label={dict.nav.process}>
       <div className="sec-head">
-        <h2>{dict.process.heading}</h2>
+        <h2>
+          <GlitchText
+            speed={4}
+            enableShadows={false}
+            enableOnHover={false}
+            className="sec-glitch"
+          >
+            {dict.process.heading}
+          </GlitchText>
+        </h2>
         <span className="mono">{dict.process.secLabel}</span>
       </div>
       <div className="steps">

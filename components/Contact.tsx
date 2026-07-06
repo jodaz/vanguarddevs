@@ -1,3 +1,4 @@
+import GlitchText from "@/components/reactbits/GlitchText/GlitchText";
 import type { Dictionary } from "@/lib/dictionaries";
 import { CALENDLY_URL, CONTACT_EMAIL, LINKEDIN_URL } from "@/lib/site";
 
@@ -9,7 +10,15 @@ export default function Contact({ dict }: { dict: Dictionary }) {
       </span>
       <p className="display">
         <a className="big" href={CALENDLY_URL}>
-          {dict.contact.cta} <span className="mark" aria-hidden="true" />
+          <GlitchText
+            speed={4}
+            enableShadows={false}
+            enableOnHover={false}
+            className="sec-glitch"
+          >
+            {dict.contact.cta}
+          </GlitchText>{" "}
+          <span className="mark" aria-hidden="true" />
         </a>
       </p>
       <div className="row">

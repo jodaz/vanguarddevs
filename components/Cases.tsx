@@ -1,10 +1,20 @@
+import GlitchText from "@/components/reactbits/GlitchText/GlitchText";
 import type { Dictionary } from "@/lib/dictionaries";
 
 export default function Cases({ dict }: { dict: Dictionary }) {
   return (
     <section id="cases" aria-label={dict.nav.cases}>
       <div className="sec-head">
-        <h2>{dict.cases.heading}</h2>
+        <h2>
+          <GlitchText
+            speed={4}
+            enableShadows={false}
+            enableOnHover={false}
+            className="sec-glitch"
+          >
+            {dict.cases.heading}
+          </GlitchText>
+        </h2>
         <span className="mono">{dict.cases.secLabel}</span>
       </div>
       <div className="services">

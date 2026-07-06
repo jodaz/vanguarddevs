@@ -1,10 +1,18 @@
 :root {
-  --paper: #eceaf1;
-  --ink: #16121f;
+  /* Dark theme (site default) — the brand guide's inverse scheme:
+     Obsidian surface, Fog type/structure, Voltage Violet scarce.
+     --signal-text is the on-dark violet the original design used for
+     violet text over Ink; --steel is Slate lifted for dark legibility. */
+  --paper: #16121f;
+  --ink: #eceaf1;
   --signal: #5d2de2;
-  --steel: #6f6a7c;
+  --signal-text: #9d7bff;
+  --on-signal: #eceaf1;
+  --steel: #9a94a8;
+  --tint: rgba(236, 234, 241, 0.07);
   --rule: 3px solid var(--ink);
   --pad: clamp(20px, 4vw, 56px);
+  color-scheme: dark;
 }
 
 * {
@@ -40,7 +48,7 @@ body {
 
 ::selection {
   background: var(--signal);
-  color: var(--paper);
+  color: var(--on-signal);
 }
 
 a {
@@ -126,12 +134,13 @@ nav a:focus-visible {
 
 nav a.cta {
   background: var(--signal);
-  color: var(--paper);
+  color: var(--on-signal);
 }
 
 nav a.cta:hover,
 nav a.cta:focus-visible {
   background: var(--ink);
+  color: var(--paper);
 }
 
 :focus-visible {
@@ -172,7 +181,7 @@ nav a.cta:focus-visible {
 }
 
 .lang-toggle a:hover {
-  color: var(--signal);
+  color: var(--signal-text);
   background: none;
 }
 
@@ -189,6 +198,17 @@ nav a.cta:focus-visible {
   overflow: hidden;
 }
 
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.hero > *:not(.hero-bg) {
+  position: relative;
+  z-index: 1;
+}
+
 .hero .coords {
   display: flex;
   justify-content: space-between;
@@ -202,7 +222,7 @@ h1 {
 }
 
 h1 .line-word {
-  color: var(--signal);
+  color: var(--signal-text);
 }
 
 .hero-foot {
@@ -229,6 +249,34 @@ h1 .line-word {
   flex-wrap: wrap;
   gap: 14px;
   margin-top: 28px;
+}
+
+/* ---------- glitch headings ---------- */
+/* Neutralize GlitchText demo styles so headings keep the brand system;
+   .glitch.sec-glitch out-specifies the vendored single-class rules. */
+.glitch.sec-glitch {
+  display: inline-block;
+  color: inherit;
+  font: inherit;
+  /* keep the vendored white-space: nowrap — the ±10px-offset copies
+     have less available width and would wrap while the base text doesn't */
+  margin: 0;
+  cursor: inherit;
+  user-select: text;
+}
+
+.glitch.sec-glitch::before,
+.glitch.sec-glitch::after {
+  color: inherit;
+  background-color: var(--paper);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* with animations killed the clipped copies would sit as static ghosts */
+  .glitch.sec-glitch::before,
+  .glitch.sec-glitch::after {
+    display: none;
+  }
 }
 
 /* ---------- section scaffolding ---------- */
@@ -297,7 +345,7 @@ h2 {
 }
 
 .svc .code {
-  color: var(--signal);
+  color: var(--signal-text);
   margin-bottom: 22px;
   display: flex;
   justify-content: space-between;
@@ -341,9 +389,11 @@ h2 {
   color: var(--paper);
 }
 
+/* hovered cards invert to a light (Fog) surface, so violet text drops
+   back to the deep brand violet there */
 .svc:hover .code,
 .svc:focus-within .code {
-  color: #9d7bff;
+  color: var(--signal);
 }
 
 .svc:hover p,
@@ -354,7 +404,7 @@ h2 {
 .case-link {
   display: inline-block;
   margin-top: 18px;
-  color: var(--signal);
+  color: var(--signal-text);
   text-decoration: none;
 }
 
@@ -365,7 +415,7 @@ h2 {
 
 .svc:hover .case-link,
 .svc:focus-within .case-link {
-  color: #9d7bff;
+  color: var(--signal);
 }
 
 /* ---------- next in line ---------- */
@@ -378,7 +428,7 @@ h2 {
   background: repeating-linear-gradient(
     -45deg,
     transparent 0 12px,
-    rgba(22, 18, 31, 0.06) 12px 14px
+    var(--tint) 12px 14px
   );
 }
 
@@ -441,7 +491,7 @@ h2 {
 .step .num {
   font-family: var(--font-display), sans-serif;
   font-size: clamp(44px, 5vw, 72px);
-  color: var(--signal);
+  color: var(--signal-text);
   line-height: 1;
   margin-bottom: 16px;
 }
@@ -508,8 +558,9 @@ h2 {
   color: var(--paper);
 }
 
+/* featured package inverts to a light surface — deep violet mark reads there */
 .pkg.featured .mark {
-  background: #9d7bff;
+  background: var(--signal);
 }
 
 /* ---------- about ---------- */
@@ -536,7 +587,7 @@ h2 {
   background: repeating-linear-gradient(
     -45deg,
     transparent 0 12px,
-    rgba(22, 18, 31, 0.06) 12px 14px
+    var(--tint) 12px 14px
   );
 }
 
@@ -571,7 +622,7 @@ h2 {
 }
 
 .contact a.big {
-  color: var(--signal);
+  color: var(--signal-text);
   text-decoration: none;
 }
 
@@ -608,7 +659,7 @@ h2 {
 
 .btn.solid {
   background: var(--signal);
-  color: var(--paper);
+  color: var(--on-signal);
   border-color: var(--signal);
 }
 
@@ -616,6 +667,7 @@ h2 {
 .btn.solid:focus-visible {
   background: var(--ink);
   border-color: var(--ink);
+  color: var(--paper);
 }
 
 /* ---------- footer ---------- */

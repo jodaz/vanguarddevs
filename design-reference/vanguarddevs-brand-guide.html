@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VanguardDevs — Brand Guidelines v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#ECEAF1;--ink:#16121F;--signal:#5D2DE2;--steel:#6F6A7C;--rule:3px solid var(--ink);--pad:clamp(20px,4vw,56px)}
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:var(--paper);color:var(--ink);font-family:'Archivo',sans-serif;font-size:16.5px;line-height:1.6}
+  .mono{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+  .display{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;line-height:.95}
+  .mark{display:inline-block;width:.62em;height:.72em;background:var(--signal);clip-path:polygon(0 0,100% 50%,0 100%)}
+  header{padding:var(--pad);border-bottom:var(--rule)}
+  header h1{font-size:clamp(40px,7vw,92px)}
+  header .mono{color:var(--steel);display:block;margin-bottom:24px}
+  section{border-bottom:var(--rule)}
+  .sec-head{display:flex;justify-content:space-between;align-items:baseline;padding:16px var(--pad);border-bottom:var(--rule)}
+  .sec-head h2{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(24px,3.4vw,40px)}
+  .sec-head .mono{color:var(--steel)}
+  .content{padding:var(--pad)}
+  .content p{max-width:70ch;margin-bottom:14px}
+  /* logo lockups */
+  .lockups{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-top:2px solid var(--ink)}
+  .lockup{border:2px solid var(--ink);margin:-2px 0 0 -2px;padding:44px 28px;display:flex;flex-direction:column;gap:26px;align-items:flex-start}
+  .lockup .mono{color:var(--steel)}
+  .wordmark{font-family:'Anton',sans-serif;font-size:34px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+  .lockup.inverse{background:var(--ink);color:var(--paper)}
+  .lockup.signal{background:var(--signal);color:var(--paper)}
+  .lockup.signal .mark,.lockup.inverse .mark{background:currentColor}
+  .stacked{font-family:'Anton',sans-serif;font-size:34px;text-transform:uppercase;line-height:.95}
+  .stacked span{color:var(--signal)}
+  /* palette */
+  .swatches{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+  .swatch{min-height:220px;padding:20px;display:flex;flex-direction:column;justify-content:space-between;border-right:var(--rule)}
+  .swatch:last-child{border-right:none}
+  .swatch .name{font-family:'Anton',sans-serif;font-size:24px;text-transform:uppercase}
+  @media(max-width:720px){.swatch{border-right:none;border-bottom:var(--rule)}}
+  /* type */
+  .type-row{padding:28px var(--pad);border-bottom:2px solid var(--ink);display:grid;grid-template-columns:220px 1fr;gap:24px;align-items:baseline}
+  .type-row:last-child{border-bottom:none}
+  @media(max-width:720px){.type-row{grid-template-columns:1fr}}
+  .type-row .label{color:var(--steel)}
+  .spec-display{font-family:'Anton',sans-serif;font-size:clamp(36px,6vw,72px);text-transform:uppercase;line-height:.95}
+  .spec-body{font-size:19px;max-width:56ch}
+  .spec-mono{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase}
+  /* voice + rules tables */
+  .cols{display:grid;grid-template-columns:1fr 1fr}
+  @media(max-width:820px){.cols{grid-template-columns:1fr}}
+  .col{padding:var(--pad)}
+  .col:first-child{border-right:var(--rule)}
+  @media(max-width:820px){.col:first-child{border-right:none;border-bottom:var(--rule)}}
+  .col h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:22px;margin-bottom:16px}
+  .col h3.no{color:var(--signal)}
+  .col li{list-style:none;padding:12px 0;border-bottom:2px solid var(--ink);font-weight:500}
+  .col li small{display:block;color:var(--steel);font-weight:400;margin-top:4px}
+  /* IG */
+  .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .pillar{padding:32px var(--pad);border-right:var(--rule)}
+  .pillar:last-child{border-right:none}
+  @media(max-width:900px){.pillar{border-right:none;border-bottom:var(--rule)}.pillar:last-child{border-bottom:none}}
+  .pillar .code{color:var(--signal);margin-bottom:14px}
+  .pillar h3{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:24px;margin-bottom:10px}
+  .pillar p{color:var(--steel);font-size:15px}
+  footer{padding:18px var(--pad);color:var(--steel);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+</style>
+</head>
+<body>
+
+<header>
+  <span class="mono">Brand Guidelines — v1.0 — 2026</span>
+  <h1 class="display">Vanguard<br>Devs <span class="mark" aria-hidden="true"></span></h1>
+</header>
+
+<section>
+  <div class="sec-head"><h2>The idea</h2><span class="mono">Sec.01</span></div>
+  <div class="content">
+    <p><strong>Vanguard → avant-garde.</strong> The name means the front line of an advance, and it's the same word the experimental art movements of the 1920s used for themselves. The brand borrows their visual language — poster-weight type, a signal red, hard geometry, exposed structure — to say one thing: this studio builds ahead of the line.</p>
+    <p>The audience is mid-size businesses — <strong>primarily in Venezuela, extending across the Americas and the US</strong>. The promise is technical excellence. Every design decision should feel <strong>deliberate, engineered, and slightly ahead</strong> — never decorative, never soft, never templated.</p>
+    <p><strong>Language:</strong> the brand is bilingual by design. Spanish leads; English is a full first-class version, never an afterthought. Website ships with an ES/EN toggle (ES default). Instagram captions run Spanish first, then a condensed English block after a "—EN—" divider. Never machine-translate tone: "la vanguardia" carries the brand name natively in Spanish — use it.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Logo</h2><span class="mono">Sec.02</span></div>
+  <div class="content">
+    <p>The system has two parts: the <strong>wordmark</strong> (Anton, all caps, tight tracking) and the <strong>advance mark</strong> — a solid right-facing triangle. The mark is the brand's signature: it points forward, always. Use it as bullet, cursor, favicon, and profile avatar.</p>
+  </div>
+  <div class="lockups">
+    <div class="lockup"><span class="mono">A — Primary lockup</span><span class="wordmark"><span class="mark"></span>VanguardDevs</span></div>
+    <div class="lockup inverse"><span class="mono">B — Inverse</span><span class="wordmark"><span class="mark" style="background:#5D2DE2"></span>VanguardDevs</span></div>
+    <div class="lockup signal"><span class="mono">C — Signal (sparingly)</span><span class="wordmark">VanguardDevs</span></div>
+    <div class="lockup"><span class="mono">D — Stacked (social / square)</span><span class="stacked">Vanguard<br>Devs<span> ▶</span></span></div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Color</h2><span class="mono">Sec.03</span></div>
+  <div class="swatches">
+    <div class="swatch" style="background:#ECEAF1">
+      <span class="mono">Primary surface — 70%</span>
+      <div><div class="name">Fog</div><span class="mono">#ECEAF1</span></div>
+    </div>
+    <div class="swatch" style="background:#16121F;color:#ECEAF1">
+      <span class="mono">Type &amp; structure — 20%</span>
+      <div><div class="name">Obsidian</div><span class="mono">#16121F</span></div>
+    </div>
+    <div class="swatch" style="background:#5D2DE2;color:#ECEAF1">
+      <span class="mono">Accent only — 5–10%</span>
+      <div><div class="name">Voltage Violet</div><span class="mono">#5D2DE2</span></div>
+    </div>
+    <div class="swatch" style="background:#6F6A7C;color:#ECEAF1">
+      <span class="mono">Secondary text</span>
+      <div><div class="name">Slate</div><span class="mono">#6F6A7C</span></div>
+    </div>
+  </div>
+  <div class="content" style="border-top:var(--rule)">
+    <p><strong>Rule:</strong> Voltage Violet is scarce by design — it marks the most important thing on any surface, and only one thing per surface. If everything is violet, nothing is at the front.</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Typography</h2><span class="mono">Sec.04</span></div>
+  <div class="type-row">
+    <span class="label mono">Display — Anton<br>Headlines, caps only</span>
+    <div class="spec-display">Built at the front line</div>
+  </div>
+  <div class="type-row">
+    <span class="label mono">Body — Archivo<br>400 / 500 / 600</span>
+    <div class="spec-body">Archivo carries every paragraph, interface label and long-form caption. It's a grotesque built for screens — sturdy, neutral, and legible at speed.</div>
+  </div>
+  <div class="type-row">
+    <span class="label mono">Utility — IBM Plex Mono<br>Labels, codes, data</span>
+    <div class="spec-mono">Sec.01 / Services — BRD / AI / WEB / COM — vanguards.dev</div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Voice</h2><span class="mono">Sec.05</span></div>
+  <div class="cols">
+    <div class="col">
+      <h3>We sound like</h3>
+      <ul>
+        <li>Declarative and specific<small>"We ship weekly increments you can click." Not "we deliver value-driven solutions."</small></li>
+        <li>Engineer-direct<small>Plain verbs, short sentences, real numbers. Confidence comes from precision, not adjectives.</small></li>
+        <li>Forward-facing<small>Every message points at what happens next — the vanguard never describes the rear.</small></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h3 class="no">We never sound like</h3>
+      <ul>
+        <li>Agency-speak<small>No "synergy," "solutions," "passionate," "cutting-edge," or exclamation points.</small></li>
+        <li>Hype without proof<small>Never claim AI magic. Show the pipeline, the metric, the before/after.</small></li>
+        <li>Apologetic or soft<small>No hedging. If we're not sure, we say what we'll do to find out.</small></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head"><h2>Instagram system</h2><span class="mono">Sec.06</span></div>
+  <div class="content">
+    <p><strong>Handle:</strong> @vanguarddevs · <strong>Bio:</strong> "Software at the front line ▶ Brand systems / AI / Web apps / Ecommerce — vanguards.dev" · <strong>Avatar:</strong> the advance mark on Ink.</p>
+    <p><strong>Grid rhythm:</strong> alternate Concrete-background and Ink-background posts so the grid reads as a checker of light and dark, with Signal Red appearing in roughly one of every three tiles. Three content pillars, three matching templates (included in this package):</p>
+  </div>
+  <div class="pillars" style="border-top:var(--rule)">
+    <div class="pillar">
+      <div class="code mono">P1 — Statements</div>
+      <h3>Manifesto posts</h3>
+      <p>One bold claim per tile in Anton caps. Positioning, opinions, principles. These build the brand's spine. 1×/week.</p>
+    </div>
+    <div class="pillar">
+      <div class="code mono">P2 — Field notes</div>
+      <h3>Technical carousels</h3>
+      <p>6–8 slide breakdowns: how we wired an AI pipeline, why a checkout converts, what a design system contains. Proof of excellence. 1×/week.</p>
+    </div>
+    <div class="pillar">
+      <div class="code mono">P3 — Dispatches</div>
+      <h3>Build logs</h3>
+      <p>Shipped work, before/after screens, launch announcements framed in the project template. Social proof. As shipped.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="mono">© 2026 VanguardDevs — Brand Guidelines v1.0</span>
+  <span class="mono">vanguards.dev</span>
+</footer>
+
+</body>
+</html>

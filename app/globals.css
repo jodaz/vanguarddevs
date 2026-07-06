@@ -616,6 +616,10 @@ h2 {
   text-align: left;
 }
 
+.contact > .mono {
+  color: var(--steel);
+}
+
 .contact .display {
   font-size: clamp(44px, 9vw, 128px);
   margin: 18px 0 34px;
@@ -668,6 +672,10 @@ h2 {
   background: var(--ink);
   border-color: var(--ink);
   color: var(--paper);
+}
+
+.btn.solid .mark {
+  background: currentColor;
 }
 
 /* ---------- footer ---------- */

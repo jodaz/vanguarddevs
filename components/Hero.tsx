@@ -35,11 +35,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
           <p>{dict.hero.sub}</p>
           <div className="hero-ctas">
             <a className="btn solid" href={CALENDLY_URL}>
-              <span
-                className="mark"
-                style={{ background: "currentColor" }}
-                aria-hidden="true"
-              />
+              <span className="mark" aria-hidden="true" />
               {dict.hero.ctaPrimary}
             </a>
             <a className="btn" href="#cases">

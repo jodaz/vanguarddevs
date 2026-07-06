@@ -25,6 +25,7 @@ export interface Dictionary {
     cta: string;
     ariaMain: string;
     ariaLang: string;
+    menuLabel: string;
   };
   hero: {
     ariaLabel: string;
@@ -80,6 +81,7 @@ const es: Dictionary = {
     cta: "Agenda una llamada",
     ariaMain: "Principal",
     ariaLang: "Idioma / Language",
+    menuLabel: "Menú",
   },
   hero: {
     ariaLabel: "Introducción",
@@ -183,6 +185,7 @@ const en: Dictionary = {
     cta: "Book a call",
     ariaMain: "Main",
     ariaLang: "Idioma / Language",
+    menuLabel: "Menu",
   },
   hero: {
     ariaLabel: "Intro",

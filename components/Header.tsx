@@ -10,6 +10,12 @@ export default function Header({
   dict: Dictionary;
   lang: Locale;
 }) {
+  const links = [
+    ["#cases", dict.nav.cases],
+    ["#process", dict.nav.process],
+    ["#about", dict.nav.about],
+  ] as const;
+
   return (
     <header>
       <Link className="logo" href={`/${lang}`}>
@@ -17,9 +23,25 @@ export default function Header({
         VanguardDevs
       </Link>
       <nav aria-label={dict.nav.ariaMain}>
-        <a href="#cases">{dict.nav.cases}</a>
-        <a href="#process">{dict.nav.process}</a>
-        <a href="#about">{dict.nav.about}</a>
+        {links.map(([href, label]) => (
+          <a key={href} href={href}>
+            {label}
+          </a>
+        ))}
+        {/* CSS-only mobile menu: <details> needs no client JS; the panel
+            stays open after an anchor tap (accepted trade-off) */}
+        <details className="menu">
+          <summary aria-label={dict.nav.menuLabel}>
+            <span className="menu-icon" aria-hidden="true" />
+          </summary>
+          <div className="menu-panel">
+            {links.map(([href, label]) => (
+              <a key={href} href={href}>
+                {label}
+              </a>
+            ))}
+          </div>
+        </details>
       </nav>
       <div className="header-actions">
         <a className="cta" href={CALENDLY_URL}>

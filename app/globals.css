@@ -154,27 +154,70 @@ nav a:focus-visible {
   outline-offset: 2px;
 }
 
+/* ---------- mobile menu (CSS-only <details> hamburger) ---------- */
+.menu {
+  display: none; /* shown ≤820px */
+}
+
+.menu summary {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0 20px;
+  border-left: var(--rule);
+  cursor: pointer;
+  list-style: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.menu summary::-webkit-details-marker {
+  display: none;
+}
+
+.menu summary:hover,
+.menu[open] summary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.menu-icon {
+  width: 18px;
+  height: 14px;
+  border-top: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  background: linear-gradient(currentColor, currentColor) center / 100% 2px
+    no-repeat;
+}
+
+.menu-panel {
+  /* header is sticky (positioned), so the panel spans the full header
+     width; +3px clears the header's bottom rule */
+  position: absolute;
+  top: calc(100% + 3px);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  background: var(--paper);
+  border-bottom: var(--rule);
+}
+
+.menu-panel a {
+  justify-content: center;
+  padding: 13px 0;
+  border-left: none;
+}
+
+.menu-panel a + a {
+  border-top: var(--rule);
+}
+
 @media (max-width: 820px) {
-  header {
-    flex-wrap: wrap;
+  nav > a {
+    display: none;
   }
-  .logo {
-    flex: 1 1 auto;
-    border-right: none; /* .cta's border-left provides the rule */
-  }
-  nav {
-    order: 3;
-    flex: 1 1 100%;
-    margin-left: 0;
-    border-top: var(--rule);
-  }
-  nav a {
-    flex: 1;
-    justify-content: center;
-    padding: 11px 0;
-  }
-  nav a:first-child {
-    border-left: none;
+  .menu {
+    display: flex;
   }
 }
 
@@ -309,12 +352,6 @@ section {
   border-bottom: var(--rule);
   /* land anchor targets below the sticky header */
   scroll-margin-top: 62px;
-}
-
-@media (max-width: 820px) {
-  section {
-    scroll-margin-top: 104px;
-  }
 }
 
 .sec-head {

@@ -1,18 +1,18 @@
 :root {
-  /* Dark theme (site default) — the brand guide's inverse scheme:
-     Obsidian surface, Fog type/structure, Voltage Violet scarce.
-     --signal-text is the on-dark violet the original design used for
-     violet text over Ink; --steel is Slate lifted for dark legibility. */
-  --paper: #16121f;
-  --ink: #eceaf1;
+  /* Light theme (site default) — the brand guide's primary scheme:
+     Fog surface, Obsidian type/structure, Voltage Violet scarce.
+     --signal-text: on light, Voltage Violet reads directly as text;
+     --steel is Slate at its brand value. */
+  --paper: #eceaf1;
+  --ink: #16121f;
   --signal: #5d2de2;
-  --signal-text: #9d7bff;
+  --signal-text: #5d2de2;
   --on-signal: #eceaf1;
-  --steel: #9a94a8;
-  --tint: rgba(236, 234, 241, 0.07);
+  --steel: #6f6a7c;
+  --tint: rgba(22, 18, 31, 0.06);
   --rule: 3px solid var(--ink);
   --pad: clamp(20px, 4vw, 56px);
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 * {

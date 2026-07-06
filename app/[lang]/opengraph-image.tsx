@@ -36,10 +36,10 @@ export default async function OpengraphImage({
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: "#16121F",
-          color: "#ECEAF1",
+          background: "#ECEAF1",
+          color: "#16121F",
           padding: 64,
-          border: "16px solid #ECEAF1",
+          border: "16px solid #16121F",
           fontFamily: "sans-serif",
         }}
       >
@@ -77,7 +77,7 @@ export default async function OpengraphImage({
         >
           <span>
             {dict.hero.headlineStart}{" "}
-            <span style={{ color: "#9D7BFF" }}>{dict.hero.headlineAccent}</span>
+            <span style={{ color: "#5D2DE2" }}>{dict.hero.headlineAccent}</span>
           </span>
         </div>
         <div
@@ -85,7 +85,7 @@ export default async function OpengraphImage({
             display: "flex",
             justifyContent: "space-between",
             fontSize: 28,
-            color: "#9A94A8",
+            color: "#6F6A7C",
           }}
         >
           <span>vanguards.dev</span>

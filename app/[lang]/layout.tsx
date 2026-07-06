@@ -29,7 +29,7 @@ const plexMono = IBM_Plex_Mono({
 export const dynamicParams = false;
 
 export const viewport: Viewport = {
-  themeColor: "#16121F",
+  themeColor: "#ECEAF1",
 };
 
 export function generateStaticParams() {

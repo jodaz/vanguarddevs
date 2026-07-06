@@ -8,10 +8,10 @@ VanguardDevs or the product is the subject.
 
 Page structure: Hero → Case studies (`#cases`) → Process + packages (`#process`)
 → About the founder (`#about`) → Contact (`#contact`). Single repeated CTA
-(book a call); no forms.
+(message via WhatsApp); no forms.
 
 Pending `[PLACEHOLDER]`s before launch (search the codebase for `PLACEHOLDER`):
-Calendly URL and LinkedIn URL (`lib/site.ts`), two foreign-client case studies,
+LinkedIn URL (`lib/site.ts`), two foreign-client case studies,
 package prices (`lib/dictionaries.ts`), and the founder photo (`components/About.tsx`).
 
 ## Run

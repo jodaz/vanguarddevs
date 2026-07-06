@@ -29,7 +29,6 @@ export interface Dictionary {
   };
   hero: {
     ariaLabel: string;
-    kicker: string;
     region: string;
     headlineStart: string;
     headlineAccent: string;
@@ -60,7 +59,8 @@ export interface Dictionary {
     heading: string;
     secLabel: string;
     cta: string;
-    linkedinLabel: string;
+    socialLinkedin: string;
+    socialInstagram: string;
   };
   footer: {
     tagline: string;
@@ -76,28 +76,27 @@ const es: Dictionary = {
   },
   nav: {
     cases: "Proyectos",
-    process: "Cómo funciona",
+    process: "La hoja de ruta",
     about: "Fundador",
-    cta: "Agenda una llamada",
+    cta: "Empieza ahora",
     ariaMain: "Principal",
     ariaLang: "Idioma / Language",
     menuLabel: "Menú",
   },
   hero: {
     ariaLabel: "Introducción",
-    kicker: "VanguardDevs — Estudio de producto",
     region: "USA ▶ LATAM",
     headlineStart:
       "Tu idea convertida en un producto funcionando y en manos de usuarios reales —",
     headlineAccent: "en semanas, no meses.",
     sub: "VanguardDevs es un estudio de producto: MVPs y SaaS de punta a punta, con un solo interlocutor. Un estudio que ha lanzado sus propios SaaS y construye productos para founders de USA y LATAM.",
-    ctaPrimary: "Agenda una llamada",
+    ctaPrimary: "Empieza ahora",
     ctaSecondary: "Ver proyectos",
-    scroll: "Baja — Sec.01 / Proyectos",
+    scroll: "Baja — Proyectos",
   },
   cases: {
     heading: "Casos de estudio",
-    secLabel: "Sec.01 / Proyectos",
+    secLabel: "Proyectos",
     items: [
       {
         name: "ZonaCrono",
@@ -114,8 +113,8 @@ const es: Dictionary = {
     ],
   },
   process: {
-    heading: "Cómo funciona",
-    secLabel: "Sec.02 / Proceso",
+    heading: "La hoja de ruta",
+    secLabel: "Proceso",
     steps: [
       {
         num: "01",
@@ -156,18 +155,19 @@ const es: Dictionary = {
   },
   about: {
     heading: "Sobre el fundador",
-    secLabel: "Sec.03 / Fundador",
+    secLabel: "Fundador",
     photoLabel: "[PLACEHOLDER: Foto de Jesus O.]",
     bio: "Jesus O. es el fundador de VanguardDevs, estudio de producto especializado en MVPs y SaaS. A diferencia de una agencia tradicional, trabajas directamente con él — quien diseña la solución es quien la construye. Ha lanzado sus propios productos (ZonaCrono, plataforma de inscripciones deportivas con clientes activos) y desarrolla software para empresas y founders de USA y LATAM. Su enfoque: lanzar rápido, validar con usuarios reales, iterar.",
   },
   contact: {
     heading: "Contacto",
-    secLabel: "Sec.04 / Contacto",
-    cta: "Agenda una llamada",
-    linkedinLabel: "LinkedIn — [PLACEHOLDER]",
+    secLabel: "Contacto",
+    cta: "Empieza ahora",
+    socialLinkedin: "LinkedIn",
+    socialInstagram: "Instagram",
   },
   footer: {
-    tagline: "vanguards.dev — Estudio de producto: MVPs y SaaS",
+    tagline: "vanguards.dev",
   },
 };
 
@@ -180,28 +180,27 @@ const en: Dictionary = {
   },
   nav: {
     cases: "Projects",
-    process: "How it works",
+    process: "The roadmap",
     about: "Founder",
-    cta: "Book a call",
+    cta: "Start now",
     ariaMain: "Main",
     ariaLang: "Idioma / Language",
     menuLabel: "Menu",
   },
   hero: {
     ariaLabel: "Intro",
-    kicker: "VanguardDevs — Product studio",
     region: "USA ▶ LATAM",
     headlineStart:
       "Your idea turned into a working product in the hands of real users —",
     headlineAccent: "in weeks, not months.",
     sub: "VanguardDevs is a product studio: end-to-end MVPs and SaaS, with a single point of contact. A studio that has launched its own SaaS products and builds for founders in the USA and LATAM.",
-    ctaPrimary: "Book a call",
+    ctaPrimary: "Start now",
     ctaSecondary: "See projects",
-    scroll: "Scroll — Sec.01 / Projects",
+    scroll: "Scroll — Projects",
   },
   cases: {
     heading: "Case studies",
-    secLabel: "Sec.01 / Projects",
+    secLabel: "Projects",
     items: [
       {
         name: "ZonaCrono",
@@ -218,8 +217,8 @@ const en: Dictionary = {
     ],
   },
   process: {
-    heading: "How it works",
-    secLabel: "Sec.02 / Process",
+    heading: "The roadmap",
+    secLabel: "Process",
     steps: [
       {
         num: "01",
@@ -260,18 +259,19 @@ const en: Dictionary = {
   },
   about: {
     heading: "About the founder",
-    secLabel: "Sec.03 / Founder",
+    secLabel: "Founder",
     photoLabel: "[PLACEHOLDER: Photo of Jesus O.]",
     bio: "Jesus O. is the founder of VanguardDevs, a product studio specialized in MVPs and SaaS. Unlike a traditional agency, you work directly with him — the person who designs the solution is the one who builds it. He has launched his own products (ZonaCrono, a sports registration platform with active customers) and builds software for companies and founders in the USA and LATAM. His approach: launch fast, validate with real users, iterate.",
   },
   contact: {
     heading: "Contact",
-    secLabel: "Sec.04 / Contact",
-    cta: "Book a call",
-    linkedinLabel: "LinkedIn — [PLACEHOLDER]",
+    secLabel: "Contact",
+    cta: "Start now",
+    socialLinkedin: "LinkedIn",
+    socialInstagram: "Instagram",
   },
   footer: {
-    tagline: "vanguards.dev — Product studio: MVPs & SaaS",
+    tagline: "vanguards.dev",
   },
 };
 

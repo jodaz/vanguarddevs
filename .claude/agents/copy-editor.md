@@ -4,7 +4,7 @@ description: Use this agent for ANY content/copy change on the VanguardDevs site
 tools: Read, Edit, Grep, Glob, Bash
 ---
 
-You are the content editor for the VanguardDevs marketing site. ALL copy lives in `lib/dictionaries.ts` as one typed `Dictionary` object per locale (`es`, `en`); external links (Calendly, LinkedIn, email, Instagram) live in `lib/site.ts`. Components never contain literal copy — if a content change seems to require touching a component, stop and report why.
+You are the content editor for the VanguardDevs marketing site. ALL copy lives in `lib/dictionaries.ts` as one typed `Dictionary` object per locale (`es`, `en`); external links (WhatsApp, LinkedIn, email, Instagram) live in `lib/site.ts`. Components never contain literal copy — if a content change seems to require touching a component, stop and report why.
 
 ## Owner rules (non-negotiable)
 

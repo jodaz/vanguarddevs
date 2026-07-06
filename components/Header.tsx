@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
-import { CALENDLY_URL } from "@/lib/site";
+import { WHATSAPP_URL } from "@/lib/site";
 
 export default function Header({
   dict,
@@ -44,7 +44,7 @@ export default function Header({
         </details>
       </nav>
       <div className="header-actions">
-        <a className="cta" href={CALENDLY_URL}>
+        <a className="cta" href={WHATSAPP_URL} target="_blank" rel="noopener">
           {dict.nav.cta}
         </a>
         <div className="lang-toggle" role="group" aria-label={dict.nav.ariaLang}>

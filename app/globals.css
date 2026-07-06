@@ -748,6 +748,15 @@ h2 {
   background: currentColor;
 }
 
+.btn.icon {
+  padding: 15px;
+}
+
+.btn.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
 /* ---------- footer ---------- */
 footer {
   display: flex;

@@ -1,6 +1,6 @@
 import DotField from "@/components/reactbits/DotField/DotField";
 import type { Dictionary } from "@/lib/dictionaries";
-import { CALENDLY_URL } from "@/lib/site";
+import { WHATSAPP_URL } from "@/lib/site";
 
 /* DotField canvas colors, relative to the brand tokens in globals.css:
    - DOT_GRADIENT_FROM: --signal (Voltage Violet), strong enough for dot
@@ -33,7 +33,6 @@ export default function Hero({ dict }: { dict: Dictionary }) {
         />
       </div>
       <div className="coords mono">
-        <span>{dict.hero.kicker}</span>
         <span>{dict.hero.region}</span>
       </div>
       <h1 className="display">
@@ -45,7 +44,7 @@ export default function Hero({ dict }: { dict: Dictionary }) {
         <div>
           <p>{dict.hero.sub}</p>
           <div className="hero-ctas">
-            <a className="btn solid" href={CALENDLY_URL}>
+            <a className="btn solid" href={WHATSAPP_URL} target="_blank" rel="noopener">
               <span className="mark" aria-hidden="true" />
               {dict.hero.ctaPrimary}
             </a>

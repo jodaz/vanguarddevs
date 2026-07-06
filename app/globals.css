@@ -87,7 +87,6 @@ header {
   z-index: 50;
   display: flex;
   align-items: stretch;
-  justify-content: space-between;
   background: var(--paper);
   border-bottom: var(--rule);
 }
@@ -111,9 +110,16 @@ header {
 
 nav {
   display: flex;
+  margin-left: auto;
 }
 
-nav a {
+.header-actions {
+  display: flex;
+  align-items: stretch;
+}
+
+nav a,
+.header-actions .cta {
   display: flex;
   align-items: center;
   padding: 0 26px;
@@ -132,13 +138,13 @@ nav a:focus-visible {
   color: var(--paper);
 }
 
-nav a.cta {
+.header-actions .cta {
   background: var(--signal);
   color: var(--on-signal);
 }
 
-nav a.cta:hover,
-nav a.cta:focus-visible {
+.header-actions .cta:hover,
+.header-actions .cta:focus-visible {
   background: var(--ink);
   color: var(--paper);
 }
@@ -149,8 +155,26 @@ nav a.cta:focus-visible {
 }
 
 @media (max-width: 820px) {
-  nav a:not(.cta) {
-    display: none;
+  header {
+    flex-wrap: wrap;
+  }
+  .logo {
+    flex: 1 1 auto;
+    border-right: none; /* .cta's border-left provides the rule */
+  }
+  nav {
+    order: 3;
+    flex: 1 1 100%;
+    margin-left: 0;
+    border-top: var(--rule);
+  }
+  nav a {
+    flex: 1;
+    justify-content: center;
+    padding: 11px 0;
+  }
+  nav a:first-child {
+    border-left: none;
   }
 }
 
@@ -173,6 +197,7 @@ nav a.cta:focus-visible {
   text-transform: uppercase;
   text-decoration: none;
   border-left: none;
+  transition: background 0.15s, color 0.15s;
 }
 
 .lang-toggle a[aria-current="true"] {
@@ -282,6 +307,14 @@ h1 .line-word {
 /* ---------- section scaffolding ---------- */
 section {
   border-bottom: var(--rule);
+  /* land anchor targets below the sticky header */
+  scroll-margin-top: 62px;
+}
+
+@media (max-width: 820px) {
+  section {
+    scroll-margin-top: 104px;
+  }
 }
 
 .sec-head {

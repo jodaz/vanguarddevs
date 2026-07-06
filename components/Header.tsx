@@ -20,6 +20,8 @@ export default function Header({
         <a href="#cases">{dict.nav.cases}</a>
         <a href="#process">{dict.nav.process}</a>
         <a href="#about">{dict.nav.about}</a>
+      </nav>
+      <div className="header-actions">
         <a className="cta" href={CALENDLY_URL}>
           {dict.nav.cta}
         </a>
@@ -31,7 +33,7 @@ export default function Header({
             EN
           </Link>
         </div>
-      </nav>
+      </div>
     </header>
   );
 }

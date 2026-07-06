@@ -1,22 +1,10 @@
-import GlitchText from "@/components/reactbits/GlitchText/GlitchText";
+import SectionHead from "@/components/SectionHead";
 import type { Dictionary } from "@/lib/dictionaries";
 
 export default function Cases({ dict }: { dict: Dictionary }) {
   return (
     <section id="cases" aria-label={dict.nav.cases}>
-      <div className="sec-head">
-        <h2>
-          <GlitchText
-            speed={4}
-            enableShadows={false}
-            enableOnHover={false}
-            className="sec-glitch"
-          >
-            {dict.cases.heading}
-          </GlitchText>
-        </h2>
-        <span className="mono">{dict.cases.secLabel}</span>
-      </div>
+      <SectionHead heading={dict.cases.heading} label={dict.cases.secLabel} />
       <div className="services">
         {dict.cases.items.map((item, i) => (
           <article className="svc" key={item.name} tabIndex={0}>

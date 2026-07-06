@@ -1,22 +1,13 @@
-import GlitchText from "@/components/reactbits/GlitchText/GlitchText";
+import SectionHead from "@/components/SectionHead";
 import type { Dictionary } from "@/lib/dictionaries";
 
 export default function Process({ dict }: { dict: Dictionary }) {
   return (
     <section id="process" aria-label={dict.nav.process}>
-      <div className="sec-head">
-        <h2>
-          <GlitchText
-            speed={4}
-            enableShadows={false}
-            enableOnHover={false}
-            className="sec-glitch"
-          >
-            {dict.process.heading}
-          </GlitchText>
-        </h2>
-        <span className="mono">{dict.process.secLabel}</span>
-      </div>
+      <SectionHead
+        heading={dict.process.heading}
+        label={dict.process.secLabel}
+      />
       <div className="steps">
         {dict.process.steps.map((step) => (
           <div className="step" key={step.num}>

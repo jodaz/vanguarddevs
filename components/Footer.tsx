@@ -2,6 +2,7 @@ import Link from "next/link";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
+import { DESIGNER_URL } from "@/lib/site";
 
 export default function Footer({
   dict,
@@ -12,7 +13,12 @@ export default function Footer({
 }) {
   return (
     <footer>
-      <span className="mono">© {new Date().getFullYear()} VanguardDevs</span>
+      <span className="mono">
+        © {new Date().getFullYear()} VanguardDevs · {dict.footer.credit}{" "}
+        <a href={DESIGNER_URL} target="_blank" rel="noopener">
+          jodaz.xyz
+        </a>
+      </span>
       <span className="mono">{dict.footer.tagline}</span>
       <span className="mono footer-links">
         <Link href={`/${lang}/privacy`}>{dict.footer.privacyLink}</Link>

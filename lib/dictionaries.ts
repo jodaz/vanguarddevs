@@ -65,6 +65,7 @@ export interface Dictionary {
   };
   footer: {
     tagline: string;
+    credit: string;
     privacyLink: string;
     cookieSettings: string;
   };
@@ -188,6 +189,7 @@ const es: Dictionary = {
   },
   footer: {
     tagline: "vanguarddevs.com",
+    credit: "Diseñado por",
     privacyLink: "Privacidad",
     cookieSettings: "Cookies",
   },
@@ -346,6 +348,7 @@ const en: Dictionary = {
   },
   footer: {
     tagline: "vanguarddevs.com",
+    credit: "Designed by",
     privacyLink: "Privacy",
     cookieSettings: "Cookies",
   },

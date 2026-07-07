@@ -1,7 +1,7 @@
 import InstagramIcon from "@/components/icons/InstagramIcon";
 import LinkedInIcon from "@/components/icons/LinkedInIcon";
 import DotField from "@/components/reactbits/DotField/DotField";
-import { SectionGlitch } from "@/components/SectionHead";
+import { SectionBlur } from "@/components/SectionHead";
 import type { Dictionary } from "@/lib/dictionaries";
 import {
   CONTACT_EMAIL,
@@ -44,7 +44,7 @@ export default function Contact({ dict }: { dict: Dictionary }) {
       <span className="mono">{dict.contact.secLabel}</span>
       <p className="display">
         <a className="big" href={WHATSAPP_URL} target="_blank" rel="noopener">
-          <SectionGlitch>{dict.contact.cta}</SectionGlitch>{" "}
+          <SectionBlur>{dict.contact.cta}</SectionBlur>{" "}
           <span className="mark" aria-hidden="true" />
         </a>
       </p>

@@ -398,34 +398,6 @@ h1 .line-word {
   margin-top: 28px;
 }
 
-/* ---------- glitch headings ---------- */
-/* Neutralize GlitchText demo styles so headings keep the brand system;
-   .glitch.sec-glitch out-specifies the vendored single-class rules. */
-.glitch.sec-glitch {
-  display: inline-block;
-  color: inherit;
-  font: inherit;
-  /* keep the vendored white-space: nowrap — the ±10px-offset copies
-     have less available width and would wrap while the base text doesn't */
-  margin: 0;
-  cursor: inherit;
-  user-select: text;
-}
-
-.glitch.sec-glitch::before,
-.glitch.sec-glitch::after {
-  color: inherit;
-  background-color: var(--paper);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  /* with animations killed the clipped copies would sit as static ghosts */
-  .glitch.sec-glitch::before,
-  .glitch.sec-glitch::after {
-    display: none;
-  }
-}
-
 /* ---------- section scaffolding ---------- */
 section {
   border-bottom: var(--rule);
@@ -450,19 +422,6 @@ section {
   background: var(--signal);
   color: var(--on-signal);
   padding: 4px 14px;
-}
-
-.sec-head h2 .glitch.sec-glitch::before,
-.sec-head h2 .glitch.sec-glitch::after {
-  background-color: var(--signal);
-}
-
-/* Contact's CTA sits directly on the dark .contact surface (no violet
-   highlight box), so its ghost copies must mask with --ink instead of
-   the default --paper. */
-.contact .glitch.sec-glitch::before,
-.contact .glitch.sec-glitch::after {
-  background-color: var(--ink);
 }
 
 h2 {

@@ -21,7 +21,7 @@ npm run start  # serve the production build
 Content and structure are fully decoupled:
 
 - **`lib/dictionaries.ts`** is the single source of truth for ALL copy in both languages, as one typed `Dictionary` object per locale. Any content change happens here; components never contain literal copy. Changing the `Dictionary` interface requires updating both `es` and `en` objects (TypeScript enforces this).
-- **`lib/i18n.ts`** defines `locales` (`es`, `en`), `defaultLocale` (`es`), and `siteUrl` (`https://vanguards.dev`).
+- **`lib/i18n.ts`** defines `locales` (`es`, `en`), `defaultLocale` (`es`), and `siteUrl` (`https://vanguarddevs.com`).
 - **`lib/site.ts`** holds external links (WhatsApp, LinkedIn, email, Instagram). Some are still `PLACEHOLDER` values — search the repo for `PLACEHOLDER` to see what's pending before launch.
 - **`app/[lang]/`** is the root layout segment (there is intentionally no `app/layout.tsx` — the `[lang]` layout renders `<html lang>`). Both pages are SSG via `generateStaticParams` with `dynamicParams = false`. `generateMetadata` in the layout emits per-locale canonical/hreflang/OG tags; `page.tsx` composes the section components and inlines JSON-LD (`ProfessionalService` + `WebSite` + `WebPage`).
 - **`middleware.ts`** only matches `/`: it 307-redirects to `/es` or `/en` from `Accept-Language` (Spanish wins on ambiguity and when the header is empty). `/es` and `/en` are the canonical indexable URLs; never make `/` serve content.

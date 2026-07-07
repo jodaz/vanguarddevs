@@ -13,7 +13,6 @@ export default function Header({
   const links = [
     ["#cases", dict.nav.cases],
     ["#process", dict.nav.process],
-    ["#about", dict.nav.about],
   ] as const;
 
   return (

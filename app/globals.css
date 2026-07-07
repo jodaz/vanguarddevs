@@ -645,27 +645,30 @@ h2 {
   }
 }
 
-.photo-ph {
+.photo {
+  position: relative;
   border-right: var(--rule);
   min-height: 320px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--steel);
-  text-align: center;
-  padding: var(--pad);
-  background: repeating-linear-gradient(
-    -45deg,
-    transparent 0 12px,
-    var(--tint) 12px 14px
-  );
+  overflow: hidden;
 }
 
 @media (max-width: 820px) {
-  .photo-ph {
+  .photo {
     border-right: none;
     border-bottom: var(--rule);
   }
+}
+
+.photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(93, 45, 226, 0.35);
+  transition: opacity 300ms ease;
+}
+
+.photo:hover .photo-overlay,
+.photo:focus-within .photo-overlay {
+  opacity: 0;
 }
 
 .bio {

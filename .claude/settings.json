@@ -3,7 +3,8 @@
     "allow": [
       "Bash(disown)",
       "Bash(curl -s \"https://api.iconify.design/ph:cookie.svg\")",
-      "Bash(curl -s \"https://api.iconify.design/ph.json?icons=cookie\")"
+      "Bash(curl -s \"https://api.iconify.design/ph.json?icons=cookie\")",
+      "Bash(git status *)"
     ]
   }
 }

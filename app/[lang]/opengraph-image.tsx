@@ -88,7 +88,7 @@ export default async function OpengraphImage({
             color: "#6F6A7C",
           }}
         >
-          <span>vanguards.dev</span>
+          <span>vanguarddevs.com</span>
           <span>USA ▶ LATAM</span>
         </div>
       </div>

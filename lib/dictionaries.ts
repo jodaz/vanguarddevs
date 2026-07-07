@@ -21,7 +21,6 @@ export interface Dictionary {
   nav: {
     cases: string;
     process: string;
-    about: string;
     cta: string;
     ariaMain: string;
     ariaLang: string;
@@ -93,7 +92,6 @@ const es: Dictionary = {
   nav: {
     cases: "Proyectos",
     process: "La hoja de ruta",
-    about: "Fundador",
     cta: "Empieza ahora",
     ariaMain: "Principal",
     ariaLang: "Idioma / Language",
@@ -172,7 +170,7 @@ const es: Dictionary = {
   about: {
     heading: "Sobre el fundador",
     secLabel: "Fundador",
-    photoLabel: "[PLACEHOLDER: Foto de Jesus O.]",
+    photoLabel: "Jesus O., fundador de VanguardDevs",
     bio: "Jesus O. es el fundador de VanguardDevs, estudio de producto especializado en MVPs y SaaS. A diferencia de una agencia tradicional, trabajas directamente con él — quien diseña la solución es quien la construye. Ha lanzado sus propios productos (ZonaCrono, plataforma de inscripciones deportivas con clientes activos) y desarrolla software para empresas y founders de USA y LATAM. Su enfoque: lanzar rápido, validar con usuarios reales, iterar.",
   },
   contact: {
@@ -183,7 +181,7 @@ const es: Dictionary = {
     socialInstagram: "Instagram",
   },
   footer: {
-    tagline: "vanguards.dev",
+    tagline: "vanguarddevs.com",
     privacyLink: "Privacidad",
     cookieSettings: "Cookies",
   },
@@ -202,13 +200,13 @@ const es: Dictionary = {
     meta: {
       title: "Política de privacidad — VanguardDevs",
       description:
-        "Cómo vanguards.dev usa cookies de analítica opcionales y por qué no recopila datos personales a través de formularios.",
+        "Cómo vanguarddevs.com usa cookies de analítica opcionales y por qué no recopila datos personales a través de formularios.",
     },
     title: "Política de privacidad",
     sections: [
       {
         heading: "Alcance",
-        body: "Esta política describe qué datos recopila el sitio vanguards.dev y cómo los usa. El sitio no tiene formularios: todo contacto ocurre a través de enlaces externos (WhatsApp, correo, LinkedIn, Instagram), cada uno regido por la política de privacidad de su propio proveedor.",
+        body: "Esta política describe qué datos recopila el sitio vanguarddevs.com y cómo los usa. El sitio no tiene formularios: todo contacto ocurre a través de enlaces externos (WhatsApp, correo, LinkedIn, Instagram), cada uno regido por la política de privacidad de su propio proveedor.",
       },
       {
         heading: "Cookies y analítica",
@@ -248,7 +246,6 @@ const en: Dictionary = {
   nav: {
     cases: "Projects",
     process: "The roadmap",
-    about: "Founder",
     cta: "Start now",
     ariaMain: "Main",
     ariaLang: "Idioma / Language",
@@ -327,7 +324,7 @@ const en: Dictionary = {
   about: {
     heading: "About the founder",
     secLabel: "Founder",
-    photoLabel: "[PLACEHOLDER: Photo of Jesus O.]",
+    photoLabel: "Jesus O., founder of VanguardDevs",
     bio: "Jesus O. is the founder of VanguardDevs, a product studio specialized in MVPs and SaaS. Unlike a traditional agency, you work directly with him — the person who designs the solution is the one who builds it. He has launched his own products (ZonaCrono, a sports registration platform with active customers) and builds software for companies and founders in the USA and LATAM. His approach: launch fast, validate with real users, iterate.",
   },
   contact: {
@@ -338,7 +335,7 @@ const en: Dictionary = {
     socialInstagram: "Instagram",
   },
   footer: {
-    tagline: "vanguards.dev",
+    tagline: "vanguarddevs.com",
     privacyLink: "Privacy",
     cookieSettings: "Cookies",
   },
@@ -357,13 +354,13 @@ const en: Dictionary = {
     meta: {
       title: "Privacy policy — VanguardDevs",
       description:
-        "How vanguards.dev uses optional analytics cookies and why it doesn't collect personal data through forms.",
+        "How vanguarddevs.com uses optional analytics cookies and why it doesn't collect personal data through forms.",
     },
     title: "Privacy policy",
     sections: [
       {
         heading: "Scope",
-        body: "This policy describes what data the vanguards.dev site collects and how it is used. The site has no forms: all contact happens through external links (WhatsApp, email, LinkedIn, Instagram), each governed by its own provider's privacy policy.",
+        body: "This policy describes what data the vanguarddevs.com site collects and how it is used. The site has no forms: all contact happens through external links (WhatsApp, email, LinkedIn, Instagram), each governed by its own provider's privacy policy.",
       },
       {
         heading: "Cookies and analytics",

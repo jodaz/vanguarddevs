@@ -1,4 +1,4 @@
-# VanguardDevs — vanguards.dev
+# VanguardDevs — vanguarddevs.com
 
 Bilingual (ES/EN) one-page site for VanguardDevs, a boutique product studio
 (MVPs & SaaS for founders in the USA and LATAM), founded by Jesus O. Built with
@@ -54,7 +54,7 @@ npm run build  # production build (fully static pages)
 
 ## Post-launch (manual steps)
 
-1. Deploy (Vercel is the zero-config path) and point `vanguards.dev` at it.
+1. Deploy (Vercel is the zero-config path) and point `vanguarddevs.com` at it.
 2. Verify the domain in Google Search Console and submit `sitemap.xml`.
 3. Set up a Google Business Profile (helps for "desarrollo de software Venezuela"
    style local queries) and link it to the site.

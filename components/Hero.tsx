@@ -53,7 +53,12 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             </a>
           </div>
         </div>
-        <span className="mono">{dict.hero.scroll}</span>
+        <div className="hero-scroll">
+          <span className="mono">{dict.hero.scroll}</span>
+          <span className="hero-scroll-line" aria-hidden="true">
+            <span className="hero-scroll-dot" />
+          </span>
+        </div>
       </div>
     </section>
   );

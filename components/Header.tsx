@@ -41,6 +41,17 @@ export default function Header({
                 {label}
               </a>
             ))}
+            <a className="cta" href={WHATSAPP_URL} target="_blank" rel="noopener">
+              {dict.nav.cta}
+            </a>
+            <div className="lang-toggle" role="group" aria-label={dict.nav.ariaLang}>
+              <Link href="/es" aria-current={lang === "es" ? "true" : undefined} hrefLang="es">
+                ES
+              </Link>
+              <Link href="/en" aria-current={lang === "en" ? "true" : undefined} hrefLang="en">
+                EN
+              </Link>
+            </div>
           </div>
         </details>
       </nav>

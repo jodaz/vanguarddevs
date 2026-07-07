@@ -888,6 +888,72 @@ h2 {
   height: 20px;
 }
 
+/* ---------- not found (404) ---------- */
+/* Same inverted treatment as .hero/.contact: --ink background, --paper type.
+   Unlike those, this is a standalone page (not a section competing with
+   others), so it fills the viewport and centers its content. */
+.not-found {
+  background: var(--ink);
+  color: var(--paper);
+  min-height: 100vh;
+  padding: var(--pad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.not-found-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.not-found > *:not(.not-found-bg) {
+  position: relative;
+  z-index: 1;
+}
+
+.not-found-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 3vh, 28px);
+  text-align: center;
+  max-width: 46ch;
+}
+
+.not-found-badge {
+  color: var(--signal-text);
+}
+
+.not-found-headline {
+  font-size: clamp(72px, 22vw, 220px);
+  color: var(--paper);
+}
+
+.not-found-trace {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.not-found-lang {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.not-found-lang .mono {
+  color: rgba(236, 234, 241, 0.55);
+  text-transform: none;
+}
+
+.not-found .btn.solid {
+  border-color: var(--signal);
+}
+
 /* ---------- footer ---------- */
 footer {
   display: flex;

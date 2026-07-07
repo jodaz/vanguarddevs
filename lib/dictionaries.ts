@@ -83,6 +83,12 @@ export interface Dictionary {
     title: string;
     sections: { heading: string; body: string }[];
   };
+  notFound: {
+    badge: string;
+    stackLine1: string;
+    stackLine2: string;
+    cta: string;
+  };
 }
 
 const es: Dictionary = {
@@ -154,8 +160,8 @@ const es: Dictionary = {
       },
     ],
     packagesIntro: "Paquetes con resultado definido, no horas.",
-    venezuelaIntro: "¿Eres de Venezuela?",
-    venezuelaCta: "¡Tenemos un precio especial para ti!",
+    venezuelaIntro: "¿Eres de Venezuela 🇻🇪?",
+    venezuelaCta: "Pregunta por un precio especial para ti",
     packages: [
       {
         title: "MVP funcional",
@@ -242,6 +248,12 @@ const es: Dictionary = {
       },
     ],
   },
+  notFound: {
+    badge: "ERR_RUTA_NO_COMPILA",
+    stackLine1: "at resolve(esta/ruta) — ausente del árbol de rutas",
+    stackLine2: "at build(vanguarddevs.com) — nunca llegó a producción",
+    cta: "Volver al inicio",
+  },
 };
 
 const en: Dictionary = {
@@ -313,8 +325,8 @@ const en: Dictionary = {
       },
     ],
     packagesIntro: "Packages with a defined outcome, not hours.",
-    venezuelaIntro: "Are you from Venezuela?",
-    venezuelaCta: "We have a special price for you!",
+    venezuelaIntro: "Are you from Venezuela 🇻🇪?",
+    venezuelaCta: "Ask about a special price for you",
     packages: [
       {
         title: "Functional MVP",
@@ -400,6 +412,12 @@ const en: Dictionary = {
         body: "For questions about this policy, contact VanguardDevs through any of the channels listed in the site's contact section.",
       },
     ],
+  },
+  notFound: {
+    badge: "ERR_ROUTE_NOT_COMPILED",
+    stackLine1: "at resolve(this/path) — missing from the route tree",
+    stackLine2: "at build(vanguarddevs.com) — never shipped to production",
+    cta: "Back to homepage",
   },
 };
 

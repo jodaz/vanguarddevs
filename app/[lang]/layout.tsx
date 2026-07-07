@@ -1,31 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { Anton, Archivo, IBM_Plex_Mono } from "next/font/google";
 import { notFound } from "next/navigation";
 import ConsentBanner from "@/components/ConsentBanner";
 import { getDictionary } from "@/lib/dictionaries";
+import { anton, archivo, plexMono } from "@/lib/fonts";
 import { isLocale, locales, siteUrl, type Locale } from "@/lib/i18n";
 import "../globals.css";
-
-const anton = Anton({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--font-display",
-  display: "swap",
-});
-
-const archivo = Archivo({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-body",
-  display: "swap",
-});
-
-const plexMono = IBM_Plex_Mono({
-  weight: ["400", "500"],
-  subsets: ["latin"],
-  variable: "--font-mono",
-  display: "swap",
-});
 
 export const dynamicParams = false;
 

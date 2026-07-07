@@ -36,8 +36,13 @@ npm run build  # production build (fully static pages)
   `Accept-Language` (Spanish wins on ambiguity).
 - `lib/dictionaries.ts` — all copy for both languages, typed. Edit content here.
 - `app/globals.css` — the brand system (Fog / Obsidian / Voltage Violet, 3px rules).
-- Fonts (Anton, Archivo, IBM Plex Mono) are self-hosted via `next/font` —
-  no external font requests, zero layout shift.
+- `lib/fonts.ts` — self-hosted fonts (Anton, Archivo, IBM Plex Mono) via `next/font` —
+  no external font requests, zero layout shift. Shared by the `[lang]` layout and the
+  root 404 fallback (see below).
+- 404s: `components/NotFound.tsx` (shared glitch/terminal-styled body, shown
+  bilingually since `not-found.tsx` can't access the locale) is used by both
+  `app/[lang]/not-found.tsx` (broken links under `/es` or `/en`) and `app/not-found.tsx`
+  (anything else — the one place outside `[lang]` that renders its own `<html>`/`<body>`).
 
 ## SEO checklist (implemented)
 

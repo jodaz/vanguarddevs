@@ -10,16 +10,17 @@ import {
   WHATSAPP_URL,
 } from "@/lib/site";
 
-/* DotField canvas colors, relative to the brand tokens in globals.css:
-   - DOT_GRADIENT_FROM: --signal (Voltage Violet), strong enough for dot
-     legibility on the light Fog surface.
+/* DotField canvas colors, relative to the brand tokens in globals.css.
+   The contact surface is inverted to dark (--ink), so these are tuned
+   against that dark surface rather than the light --paper default:
+   - DOT_GRADIENT_FROM: --signal (Voltage Violet), the dot color itself.
    - DOT_GRADIENT_TO: muted slate-lavender easing the gradient toward
      --steel (#6F6A7C).
-   - DOT_GLOW: intentionally kept slightly darker than --paper (#ECEAF1)
-     so the cursor glow recedes into the surface instead of matching it. */
+   - DOT_GLOW: kept slightly lighter than --ink (#16121F) so the cursor
+     glow recedes into the dark surface instead of flaring against it. */
 const DOT_GRADIENT_FROM = "#5D2DE2";
 const DOT_GRADIENT_TO = "#8B77AC";
-const DOT_GLOW = "#E0DCE8";
+const DOT_GLOW = "#241E33";
 
 export default function Contact({ dict }: { dict: Dictionary }) {
   return (

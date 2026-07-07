@@ -9,7 +9,8 @@ export interface CaseItem {
 
 export interface PackageItem {
   title: string;
-  featured?: boolean;
+  price: string;
+  body: string;
 }
 
 export interface Dictionary {
@@ -34,7 +35,6 @@ export interface Dictionary {
     sub: string;
     ctaPrimary: string;
     ctaSecondary: string;
-    scroll: string;
   };
   cases: {
     heading: string;
@@ -46,6 +46,8 @@ export interface Dictionary {
     secLabel: string;
     steps: { num: string; title: string; body: string }[];
     packagesIntro: string;
+    venezuelaIntro: string;
+    venezuelaCta: string;
     packages: PackageItem[];
   };
   about: {
@@ -106,7 +108,6 @@ const es: Dictionary = {
     sub: "VanguardDevs es un estudio de producto: MVPs y SaaS de punta a punta, con un solo interlocutor. Un estudio que ha lanzado sus propios SaaS y construye productos para founders de USA y LATAM.",
     ctaPrimary: "Empieza ahora",
     ctaSecondary: "Ver proyectos",
-    scroll: "Baja — Proyectos",
   },
   cases: {
     heading: "Casos de estudio",
@@ -152,18 +153,23 @@ const es: Dictionary = {
       },
     ],
     packagesIntro: "Paquetes con resultado definido, no horas.",
+    venezuelaIntro: "¿Eres de Venezuela?",
+    venezuelaCta: "¡Tenemos un precio especial para ti!",
     packages: [
       {
-        title:
-          "MVP funcional en 4-6 semanas — desde $[PLACEHOLDER]: diseño, desarrollo, despliegue y 30 días de soporte.",
+        title: "MVP funcional",
+        price: "desde $1,000",
+        body: "Tu idea convertida en producto real en 4-6 semanas: diseño, desarrollo, despliegue y 30 días de soporte. Alcance fijo, fecha de lanzamiento clara y trato directo con quien lo construye.",
       },
       {
-        title: "Landing page / sitio de producto — desde $[PLACEHOLDER]",
+        title: "Landing page / sitio de producto / Ecommerce",
+        price: "desde $300",
+        body: "Una página diseñada para convertir: presenta tu producto, capta usuarios o valida tu idea antes de construirla. Lista y publicada en días, no meses.",
       },
       {
-        title:
-          "Iteración continua — desde $[PLACEHOLDER]/mes: mejoras, soporte y nuevas funcionalidades para tu producto en marcha.",
-        featured: true,
+        title: "Iteración continua",
+        price: "precios acordados",
+        body: "Tu producto no se detiene después del lanzamiento: mejoras, soporte y nuevas funcionalidades cada mes, con horas de dedicación garantizadas y prioridad en la agenda.",
       },
     ],
   },
@@ -260,7 +266,6 @@ const en: Dictionary = {
     sub: "VanguardDevs is a product studio: end-to-end MVPs and SaaS, with a single point of contact. A studio that has launched its own SaaS products and builds for founders in the USA and LATAM.",
     ctaPrimary: "Start now",
     ctaSecondary: "See projects",
-    scroll: "Scroll — Projects",
   },
   cases: {
     heading: "Case studies",
@@ -306,18 +311,23 @@ const en: Dictionary = {
       },
     ],
     packagesIntro: "Packages with a defined outcome, not hours.",
+    venezuelaIntro: "Are you from Venezuela?",
+    venezuelaCta: "We have a special price for you!",
     packages: [
       {
-        title:
-          "Functional MVP in 4-6 weeks — from $[PLACEHOLDER]: design, development, deployment and 30 days of support.",
+        title: "Functional MVP",
+        price: "from $1,000",
+        body: "Your idea turned into a real product in 4-6 weeks: design, development, deployment, and 30 days of support. Fixed scope, a clear launch date, and direct dealings with whoever builds it.",
       },
       {
-        title: "Landing page / product site — from $[PLACEHOLDER]",
+        title: "Landing page / product site / Ecommerce",
+        price: "from $300",
+        body: "A page designed to convert: showcase your product, capture users, or validate your idea before you build it. Live and published in days, not months.",
       },
       {
-        title:
-          "Continuous iteration — from $[PLACEHOLDER]/month: improvements, support and new features for your live product.",
-        featured: true,
+        title: "Ongoing iteration",
+        price: "pricing by agreement",
+        body: "Your product doesn't stop after launch: improvements, support, and new features every month, with guaranteed dedicated hours and priority on the schedule.",
       },
     ],
   },

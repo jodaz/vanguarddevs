@@ -2,16 +2,17 @@ import DotField from "@/components/reactbits/DotField/DotField";
 import type { Dictionary } from "@/lib/dictionaries";
 import { WHATSAPP_URL } from "@/lib/site";
 
-/* DotField canvas colors, relative to the brand tokens in globals.css:
-   - DOT_GRADIENT_FROM: --signal (Voltage Violet), strong enough for dot
-     legibility on the light Fog surface.
+/* DotField canvas colors, relative to the brand tokens in globals.css.
+   The hero surface is inverted to dark (--ink), so these are tuned
+   against that dark surface rather than the light --paper default:
+   - DOT_GRADIENT_FROM: --signal (Voltage Violet), the dot color itself.
    - DOT_GRADIENT_TO: muted slate-lavender easing the gradient toward
      --steel (#6F6A7C).
-   - DOT_GLOW: intentionally kept slightly darker than --paper (#ECEAF1)
-     so the cursor glow recedes into the surface instead of matching it. */
+   - DOT_GLOW: kept slightly lighter than --ink (#16121F) so the cursor
+     glow recedes into the dark surface instead of flaring against it. */
 const DOT_GRADIENT_FROM = "#5D2DE2";
 const DOT_GRADIENT_TO = "#8B77AC";
-const DOT_GLOW = "#E0DCE8";
+const DOT_GLOW = "#241E33";
 
 export default function Hero({ dict }: { dict: Dictionary }) {
   return (
@@ -53,11 +54,22 @@ export default function Hero({ dict }: { dict: Dictionary }) {
             </a>
           </div>
         </div>
-        <div className="hero-scroll">
-          <span className="mono">{dict.hero.scroll}</span>
-          <span className="hero-scroll-line" aria-hidden="true">
-            <span className="hero-scroll-dot" />
-          </span>
+        <div className="hero-scroll" aria-hidden="true">
+          <svg
+            className="hero-scroll-arrow"
+            viewBox="0 0 16 9"
+            width="16"
+            height="9"
+            fill="none"
+          >
+            <path
+              d="M1 1L8 8L15 1"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
         </div>
       </div>
     </section>

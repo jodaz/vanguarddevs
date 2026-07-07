@@ -18,7 +18,7 @@ export default function Header({
   return (
     <header>
       <Link className="logo" href={`/${lang}`}>
-        <span className="mark" aria-hidden="true" />
+        <img className="logo-icon" src="/icon.svg" alt="" width={22} height={22} />
         VanguardDevs
       </Link>
       <nav aria-label={dict.nav.ariaMain}>

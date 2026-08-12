@@ -23,19 +23,12 @@ export function SectionBlur({ children }: { children: string }) {
   return <BlurText {...blurProps} text={children} />;
 }
 
-export default function SectionHead({
-  heading,
-  label,
-}: {
-  heading: string;
-  label: string;
-}) {
+export default function SectionHead({ heading }: { heading: string }) {
   return (
     <div className="sec-head">
       <h2>
         <SectionBlur>{heading}</SectionBlur>
       </h2>
-      <span className="mono">{label}</span>
     </div>
   );
 }

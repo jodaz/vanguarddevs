@@ -1,6 +1,7 @@
 import DotField from "@/components/reactbits/DotField/DotField";
 import type { Dictionary } from "@/lib/dictionaries";
-import { WHATSAPP_URL } from "@/lib/site";
+import type { Locale } from "@/lib/i18n";
+import { primaryCta } from "@/lib/site";
 
 /* DotField canvas colors, relative to the brand tokens in globals.css.
    The hero surface is inverted to dark (--ink), so these are tuned
@@ -14,7 +15,14 @@ const DOT_GRADIENT_FROM = "#5D2DE2";
 const DOT_GRADIENT_TO = "#8B77AC";
 const DOT_GLOW = "#241E33";
 
-export default function Hero({ dict }: { dict: Dictionary }) {
+export default function Hero({
+  dict,
+  lang,
+}: {
+  dict: Dictionary;
+  lang: Locale;
+}) {
+  const cta = primaryCta(lang);
   return (
     <section className="hero" aria-label={dict.hero.ariaLabel}>
       <div className="hero-bg" aria-hidden="true">
@@ -33,9 +41,6 @@ export default function Hero({ dict }: { dict: Dictionary }) {
           glowColor={DOT_GLOW}
         />
       </div>
-      <div className="coords mono">
-        <span>{dict.hero.region}</span>
-      </div>
       <h1 className="display">
         {dict.hero.headlineStart}{" "}
         <span className="line-word">{dict.hero.headlineAccent}</span>{" "}
@@ -45,9 +50,9 @@ export default function Hero({ dict }: { dict: Dictionary }) {
         <div>
           <p>{dict.hero.sub}</p>
           <div className="hero-ctas">
-            <a className="btn solid" href={WHATSAPP_URL} target="_blank" rel="noopener">
+            <a className="btn solid" href={cta.href} target="_blank" rel="noopener">
               <span className="mark" aria-hidden="true" />
-              {dict.hero.ctaPrimary}
+              {cta.booking ? dict.contact.bookingCta : dict.hero.ctaPrimary}
             </a>
             <a className="btn" href="#cases">
               {dict.hero.ctaSecondary}

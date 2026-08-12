@@ -28,5 +28,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   }));
 
-  return [...pages, ...privacyPages];
+  const profilePages = locales.map((lang) => ({
+    url: `${siteUrl}/${lang}/jodaz`,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+    alternates: {
+      languages: {
+        es: `${siteUrl}/es/jodaz`,
+        en: `${siteUrl}/en/jodaz`,
+        "x-default": `${siteUrl}/es/jodaz`,
+      },
+    },
+  }));
+
+  return [...pages, ...profilePages, ...privacyPages];
 }

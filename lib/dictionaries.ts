@@ -4,7 +4,14 @@ export interface CaseItem {
   name: string;
   tag: string;
   body: string;
+  /** Empty string for anonymized or unreleased work — Cases.tsx skips the link when url is "". */
   url: string;
+  testimonial?: { quote: string; by: string };
+}
+
+export interface IndustryItem {
+  name: string;
+  body: string;
 }
 
 export interface PackageItem {
@@ -21,6 +28,7 @@ export interface Dictionary {
   };
   nav: {
     cases: string;
+    industries: string;
     process: string;
     cta: string;
     ariaMain: string;
@@ -29,7 +37,6 @@ export interface Dictionary {
   };
   hero: {
     ariaLabel: string;
-    region: string;
     headlineStart: string;
     headlineAccent: string;
     sub: string;
@@ -38,28 +45,48 @@ export interface Dictionary {
   };
   cases: {
     heading: string;
-    secLabel: string;
     items: CaseItem[];
+  };
+  industries: {
+    heading: string;
+    intro: string;
+    items: IndustryItem[];
   };
   process: {
     heading: string;
-    secLabel: string;
-    steps: { num: string; title: string; body: string }[];
+    steps: { title: string; body: string }[];
     packagesIntro: string;
     venezuelaIntro: string;
     venezuelaCta: string;
     packages: PackageItem[];
   };
+  /* Rendered only by /[lang]/jodaz — the landing page no longer has an
+     About section, but the profile page still uses this copy. */
   about: {
-    heading: string;
-    secLabel: string;
     photoLabel: string;
     bio: string;
+  };
+  /* /[lang]/jodaz — the founder profile page. Body copy is deliberately NOT
+     duplicated here: the page renders `about.bio` and `about.photoLabel`, so
+     the introduction stays defined in exactly one place. */
+  profile: {
+    meta: { title: string; description: string };
+    name: string;
+    role: string;
+    back: string;
+    socialGithub: string;
+    socialLinkedin: string;
+    themeLabel: string;
+    themeLight: string;
+    themeDark: string;
   };
   contact: {
     heading: string;
     secLabel: string;
     cta: string;
+    /** Booking/Calendly label. Rendered only on /en; /es keeps WhatsApp as primary CTA.
+        The ES string exists purely for Dictionary type parity. */
+    bookingCta: string;
     socialLinkedin: string;
     socialInstagram: string;
   };
@@ -93,13 +120,14 @@ export interface Dictionary {
 
 const es: Dictionary = {
   meta: {
-    title: "VanguardDevs — Desarrollo de MVPs y SaaS",
+    title: "VanguardDevs — MVPs fintech, insurtech y SaaS multi-tenant",
     description:
-      "Estudio boutique de desarrollo de producto: MVPs y SaaS de punta a punta para founders y empresas de USA y LATAM. Trabajas directamente con quien construye tu producto, sin intermediarios.",
-    ogAlt: "VanguardDevs — Desarrollo de MVPs y SaaS",
+      "Estudio boutique de producto: MVPs, SaaS multi-tenant e infraestructura embebida para fintech, insurtech y lending. Ledgers que cuadran. USA, UK y LATAM.",
+    ogAlt: "VanguardDevs — MVPs fintech, insurtech y SaaS multi-tenant",
   },
   nav: {
     cases: "Proyectos",
+    industries: "Industrias",
     process: "La hoja de ruta",
     cta: "Empieza ahora",
     ariaMain: "Principal",
@@ -108,53 +136,81 @@ const es: Dictionary = {
   },
   hero: {
     ariaLabel: "Introducción",
-    region: "USA ▶ LATAM",
     headlineStart:
       "Tu idea convertida en un producto funcionando y en manos de usuarios reales —",
     headlineAccent: "en semanas, no meses.",
-    sub: "VanguardDevs es un estudio de producto: MVPs y SaaS de punta a punta, con un solo interlocutor. Un estudio que ha lanzado sus propios SaaS y construye productos para founders de USA y LATAM.",
+    sub: "Estudio de producto para fintech, insurtech y lending: MVPs, SaaS multi-tenant e infraestructura embebida (widgets, SDKs y APIs para partners). Sistemas donde el dinero debe cuadrar —ledgers, conciliación, redenciones, integraciones de pago— en remoto con clientes de USA, UK y LATAM.",
     ctaPrimary: "Empieza ahora",
     ctaSecondary: "Ver proyectos",
   },
   cases: {
     heading: "Casos de estudio",
-    secLabel: "Proyectos",
     items: [
       {
+        name: "Insurtech · Reino Unido",
+        tag: "Anonimizado — sector seguros, UK",
+        body: "Las aseguradoras perdían clientes en la renovación, sin herramientas de retención en su propio portal. Decisiones técnicas: retención embebida como widget, integrada vía API con los sistemas del partner, sin migrar nada. Resultado: en producción dentro de portales de aseguradoras del Reino Unido.",
+        // url vacío: caso anonimizado sin URL pública. Cases.tsx omite el enlace cuando url === "".
+        url: "",
+        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
+      },
+      {
+        name: "Plataforma de cashback multi-tenant",
+        tag: "Anonimizado — fintech, multi-marca",
+        body: "Varias marcas querían ofrecer cashback sin construir cada una su infraestructura ni mezclar sus datos. Decisiones técnicas: widget embebible y API para partners sobre un ledger de doble entrada, con aislamiento multi-tenant en la base de datos vía Row Level Security, no en la capa de aplicación. Resultado: cada marca opera aislada y los saldos cuadran contra el proveedor externo.",
+        // url vacío: caso anonimizado sin URL pública. Cases.tsx omite el enlace cuando url === "".
+        url: "",
+        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
+      },
+      {
         name: "ZonaCrono",
-        tag: "Producto propio de VanguardDevs",
-        body: "Los organizadores de eventos deportivos gestionaban inscripciones por WhatsApp y planillas: caos, errores y horas perdidas. La solución: una plataforma donde los participantes se inscriben y pagan online. Hoy está en producción con organizadores activos procesando inscripciones reales.",
+        tag: "Producto propio — inscripciones deportivas",
+        body: "Los organizadores gestionaban inscripciones por WhatsApp y planillas: caos, errores y horas perdidas. Decisiones técnicas: inscripción y pago online, con reserva atómica de cupos en el checkout para cerrar la condición de carrera que vendía más plazas de las disponibles. Resultado: en producción, con organizadores que pagan por usarlo.",
         url: "https://zonacrono.com",
       },
       {
-        name: "SimpleShop",
-        tag: "Work in progress",
-        body: "Plataforma para organizar ventas por WhatsApp para pequeños emprendedores.",
-        url: "https://simpleshop.xyz",
+        name: "Akomo",
+        tag: "Datos de tipo de cambio — Venezuela",
+        body: "Venezuela opera con dos tasas de cambio a la vez, sin una fuente única que registre ambas en el tiempo. Decisiones técnicas: el bolívar (VES) frente a USD, EUR y USDT desde el BCV y Binance P2P, sobre un log append-only: cada sync agrega una fila, ninguna se actualiza. Resultado: todo lo demás es una superficie sobre ese log — ese es el foso.",
+        // url vacío: aún sin URL pública. Cases.tsx omite el enlace cuando url === "".
+        url: "",
+      },
+    ],
+  },
+  industries: {
+    heading: "Industrias",
+    intro: "Producto y arquitectura para sectores donde el dinero debe cuadrar.",
+    items: [
+      {
+        name: "Fintech",
+        body: "Plataforma de cashback multi-tenant con ledger de doble entrada, API para partners y redención contra un proveedor externo.",
+      },
+      {
+        name: "Insurtech",
+        body: "Plataforma de retención embebida dentro de los portales de aseguradoras del Reino Unido.",
+      },
+      {
+        name: "Lending",
+        body: "[PLACEHOLDER]",
       },
     ],
   },
   process: {
     heading: "La hoja de ruta",
-    secLabel: "Proceso",
     steps: [
       {
-        num: "01",
         title: "Reconocimiento",
         body: "Cuenta tu idea una sola vez. Recibe un mapa de tu negocio, tu stack y tus restricciones antes de cualquier propuesta. Sin pitch decks — hallazgos.",
       },
       {
-        num: "02",
         title: "Plano",
         body: "Aprueba un plan, no una promesa: alcance fijo, cronograma real y la arquitectura exacta que se va a construir. Sabes qué recibes y cuándo, antes de pagar.",
       },
       {
-        num: "03",
         title: "Construcción",
         body: "Usa tu producto desde la primera semana. Entregas que puedes tocar y probar, no reportes de estatus. Revisas cada avance con quien lo construye.",
       },
       {
-        num: "04",
         title: "Avance",
         body: "Lanza, mide, endurece. El go-live no es una despedida: soporte e iteración son parte del trabajo, no un extra.",
       },
@@ -165,31 +221,46 @@ const es: Dictionary = {
     packages: [
       {
         title: "MVP funcional",
-        price: "desde $1,000",
-        body: "Tu idea convertida en producto real en 4-6 semanas: diseño, desarrollo, despliegue y 30 días de soporte. Alcance fijo, fecha de lanzamiento clara y trato directo con quien lo construye.",
+        price: "desde $4.000-5.000",
+        body: "Tu idea convertida en producto real en 4-6 semanas: diseño, desarrollo, despliegue, integraciones de pago o de terceros y 30 días de soporte. Alcance fijo, fecha de lanzamiento clara y trato directo con quien lo construye.",
       },
       {
         title: "Landing page / sitio de producto / Ecommerce",
-        price: "desde $300",
-        body: "Una página diseñada para convertir: presenta tu producto, capta usuarios o valida tu idea antes de construirla. Lista y publicada en días, no meses.",
+        price: "desde $[PLACEHOLDER]",
+        body: "Una página diseñada para convertir: presenta tu producto, capta usuarios o valida tu idea antes de construirla. Diseño a medida, analítica y despliegue incluidos. Lista y publicada en días, no meses.",
       },
       {
         title: "Iteración continua",
-        price: "precios acordados",
+        price: "desde $[PLACEHOLDER]/mes",
         body: "Tu producto no se detiene después del lanzamiento: mejoras, soporte y nuevas funcionalidades cada mes, con horas de dedicación garantizadas y prioridad en la agenda.",
       },
     ],
   },
   about: {
-    heading: "Sobre el fundador",
-    secLabel: "Fundador",
     photoLabel: "Jesus O., fundador de VanguardDevs",
-    bio: "Jesus O. es el fundador de VanguardDevs, estudio de producto especializado en MVPs y SaaS. A diferencia de una agencia tradicional, trabajas directamente con él — quien diseña la solución es quien la construye. Ha lanzado sus propios productos (ZonaCrono, plataforma de inscripciones deportivas con clientes activos) y desarrolla software para empresas y founders de USA y LATAM. Su enfoque: lanzar rápido, validar con usuarios reales, iterar.",
+    bio: "Jesus O. es el fundador de VanguardDevs, estudio de producto especializado en MVPs y SaaS. Ocho años como desarrollador full-stack, con foco en fintech e insurtech, trabajando en remoto para clientes del Reino Unido, Estados Unidos y LATAM desde Venezuela. A diferencia de una agencia tradicional, trabajas directamente con él — quien diseña la solución es quien la construye. Tiene producto propio en producción y con clientes que pagan (ZonaCrono, plataforma de inscripciones deportivas). Su enfoque: lanzar rápido, validar con usuarios reales, iterar.",
+  },
+  profile: {
+    meta: {
+      title: "Jesus Ordosgoitty — Fundador de VanguardDevs",
+      description:
+        "Jesus Ordosgoitty, desarrollador full-stack y fundador de VanguardDevs. Ocho años construyendo producto en fintech e insurtech para clientes de Reino Unido, Estados Unidos y LATAM.",
+    },
+    name: "Jesus Ordosgoitty",
+    role: "Fundador de VanguardDevs · Desarrollador full-stack",
+    back: "Volver a VanguardDevs",
+    socialGithub: "GitHub",
+    socialLinkedin: "LinkedIn",
+    themeLabel: "Tema",
+    themeLight: "Claro",
+    themeDark: "Oscuro",
   },
   contact: {
     heading: "Contacto",
     secLabel: "Contacto",
     cta: "Empieza ahora",
+    // Solo se renderiza en /en; en /es el CTA primario sigue siendo WhatsApp.
+    bookingCta: "Agenda una llamada",
     socialLinkedin: "LinkedIn",
     socialInstagram: "Instagram",
   },
@@ -258,13 +329,14 @@ const es: Dictionary = {
 
 const en: Dictionary = {
   meta: {
-    title: "VanguardDevs — MVP & SaaS Development Studio",
+    title: "VanguardDevs — Fintech, insurtech & multi-tenant SaaS MVPs",
     description:
-      "Boutique product development studio: end-to-end MVPs and SaaS for founders and companies in the USA and LATAM. You work directly with the person who builds your product — no middlemen.",
-    ogAlt: "VanguardDevs — MVP & SaaS Development Studio",
+      "Boutique product studio: MVPs, multi-tenant SaaS and embedded infrastructure for fintech, insurtech and lending. Ledgers that balance. USA, UK and LATAM.",
+    ogAlt: "VanguardDevs — Fintech, insurtech & multi-tenant SaaS MVPs",
   },
   nav: {
     cases: "Projects",
+    industries: "Industries",
     process: "The roadmap",
     cta: "Start now",
     ariaMain: "Main",
@@ -273,54 +345,82 @@ const en: Dictionary = {
   },
   hero: {
     ariaLabel: "Intro",
-    region: "USA ▶ LATAM",
     headlineStart:
       "Your idea turned into a working product in the hands of real users —",
     headlineAccent: "in weeks, not months.",
-    sub: "VanguardDevs is a product studio: end-to-end MVPs and SaaS, with a single point of contact. A studio that has launched its own SaaS products and builds for founders in the USA and LATAM.",
+    sub: "A product studio for fintech, insurtech and lending: MVPs, multi-tenant SaaS and embedded infrastructure — widgets, SDKs and partner APIs. Built for systems where the money has to balance: ledgers, reconciliation, redemptions, payment integrations. Remote, with clients in the USA, UK and LATAM.",
     ctaPrimary: "Start now",
     ctaSecondary: "See projects",
   },
   cases: {
     heading: "Case studies",
-    secLabel: "Projects",
     items: [
       {
+        name: "Insurtech · United Kingdom",
+        tag: "Anonymized — insurance sector, UK",
+        body: "Insurers were losing customers at renewal, with no retention tooling inside their own portal. Technical decisions: retention embedded as a widget and wired to the partner's systems through an API, with nothing to migrate. Result: running in production inside UK insurer portals.",
+        // Empty url: anonymized case with no public URL. Cases.tsx skips the link when url === "".
+        url: "",
+        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
+      },
+      {
+        name: "Multi-tenant cashback platform",
+        tag: "Anonymized — fintech, multi-brand",
+        body: "Several brands wanted to offer cashback without each building the infrastructure, and without their data ever mixing. Technical decisions: an embeddable widget and a partner API over a double-entry ledger, with multi-tenant isolation enforced in the database through Row Level Security rather than in application code. Result: every brand runs isolated, and balances reconcile against the external provider.",
+        // Empty url: anonymized case with no public URL. Cases.tsx skips the link when url === "".
+        url: "",
+        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
+      },
+      {
         name: "ZonaCrono",
-        tag: "VanguardDevs' own product",
-        body: "Sports event organizers managed registrations through WhatsApp and spreadsheets: chaos, errors and lost hours. The solution: a platform where participants register and pay online. Today it is in production with active organizers processing real registrations.",
+        tag: "Own product — race registration",
+        body: "Organizers ran registrations through WhatsApp and spreadsheets: chaos, errors and lost hours. Technical decisions: online registration and payment, with atomic slot reservation at checkout to close the race condition that oversold places when several people paid at once. Result: in production, with paying organizers.",
         url: "https://zonacrono.com",
       },
       {
-        name: "SimpleShop",
-        tag: "Work in progress",
-        body: "A platform that helps small entrepreneurs organize their WhatsApp sales.",
-        url: "https://simpleshop.xyz",
+        name: "Akomo",
+        tag: "Exchange-rate data — Venezuela",
+        body: "Venezuela runs on two exchange rates at once, with no single source recording both over time. Technical decisions: the bolívar (VES) against USD, EUR and USDT from the central bank (BCV) and Binance P2P, on an append-only log — every sync appends a row, none are updated. Result: everything else is a surface over that log, and the log is the moat.",
+        // Empty url: no public URL yet. Cases.tsx skips the link when url === "".
+        url: "",
+      },
+    ],
+  },
+  industries: {
+    heading: "Industries",
+    intro: "Product and architecture for sectors where the money has to balance.",
+    items: [
+      {
+        name: "Fintech",
+        body: "A multi-tenant cashback platform with a double-entry ledger, a partner API and redemption against an external provider.",
+      },
+      {
+        name: "Insurtech",
+        body: "A retention platform embedded inside UK insurer portals.",
+      },
+      {
+        name: "Lending",
+        body: "[PLACEHOLDER]",
       },
     ],
   },
   process: {
     heading: "The roadmap",
-    secLabel: "Process",
     steps: [
       {
-        num: "01",
         title: "Recon",
-        body: "Tell your idea once. Get a map of your business, your stack and your constraints before any proposal. No pitch decks — findings.",
+        body: "Walk through the idea once. Get a map of your business, your stack and your constraints before any proposal. No pitch decks — findings.",
       },
       {
-        num: "02",
         title: "Blueprint",
         body: "Approve a plan, not a promise: fixed scope, a real timeline and the exact architecture that will be built. You know what you get and when, before you pay.",
       },
       {
-        num: "03",
         title: "Build",
-        body: "Use your product from week one. Deliverables you can touch and try, not status reports. You review every increment with the person who builds it.",
+        body: "Use your product from week one. Deliverables you can click through, not status reports. You review every increment with the person who builds it.",
       },
       {
-        num: "04",
-        title: "Advance",
+        title: "Launch",
         body: "Launch, measure, harden. Go-live is not a goodbye: support and iteration are part of the job, not an extra.",
       },
     ],
@@ -330,31 +430,46 @@ const en: Dictionary = {
     packages: [
       {
         title: "Functional MVP",
-        price: "from $1,000",
-        body: "Your idea turned into a real product in 4-6 weeks: design, development, deployment, and 30 days of support. Fixed scope, a clear launch date, and direct dealings with whoever builds it.",
+        price: "from $4,000-5,000",
+        body: "Your idea turned into a real product in 4-6 weeks: design, development, deployment, payment or third-party integrations, and 30 days of support. Fixed scope, a clear launch date, and you deal directly with the person who builds it.",
       },
       {
         title: "Landing page / product site / Ecommerce",
-        price: "from $300",
-        body: "A page designed to convert: showcase your product, capture users, or validate your idea before you build it. Live and published in days, not months.",
+        price: "from $[PLACEHOLDER]",
+        body: "A page designed to convert: showcase your product, capture users, or validate your idea before you build it. Custom design, analytics, and deployment included. Live and published in days, not months.",
       },
       {
         title: "Ongoing iteration",
-        price: "pricing by agreement",
-        body: "Your product doesn't stop after launch: improvements, support, and new features every month, with guaranteed dedicated hours and priority on the schedule.",
+        price: "from $[PLACEHOLDER]/mo",
+        body: "Your product doesn't stop after launch: improvements, support, and new features every month, with guaranteed dedicated hours and priority scheduling.",
       },
     ],
   },
   about: {
-    heading: "About the founder",
-    secLabel: "Founder",
     photoLabel: "Jesus O., founder of VanguardDevs",
-    bio: "Jesus O. is the founder of VanguardDevs, a product studio specialized in MVPs and SaaS. Unlike a traditional agency, you work directly with him — the person who designs the solution is the one who builds it. He has launched his own products (ZonaCrono, a sports registration platform with active customers) and builds software for companies and founders in the USA and LATAM. His approach: launch fast, validate with real users, iterate.",
+    bio: "Jesus O. is the founder of VanguardDevs, a product studio specialized in MVPs and SaaS. Eight years as a full-stack developer, focused on fintech and insurtech, working remotely for clients in the UK, the USA and LATAM from Venezuela. Unlike a traditional agency, you work directly with him — the person who designs the solution is the one who builds it. He runs his own product in production with paying customers (ZonaCrono, a sports registration platform). His approach: launch fast, validate with real users, iterate.",
+  },
+  profile: {
+    meta: {
+      title: "Jesus Ordosgoitty — Founder of VanguardDevs",
+      description:
+        "Jesus Ordosgoitty, full-stack developer and founder of VanguardDevs. Eight years building product in fintech and insurtech for clients in the UK, the USA and LATAM.",
+    },
+    name: "Jesus Ordosgoitty",
+    role: "Founder of VanguardDevs · Full-stack developer",
+    back: "Back to VanguardDevs",
+    socialGithub: "GitHub",
+    socialLinkedin: "LinkedIn",
+    themeLabel: "Theme",
+    themeLight: "Light",
+    themeDark: "Dark",
   },
   contact: {
     heading: "Contact",
     secLabel: "Contact",
     cta: "Start now",
+    // Rendered on /en only — the booking link is the primary CTA here; /es keeps WhatsApp.
+    bookingCta: "Book a call",
     socialLinkedin: "LinkedIn",
     socialInstagram: "Instagram",
   },

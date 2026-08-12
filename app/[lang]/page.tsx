@@ -1,4 +1,3 @@
-import About from "@/components/About";
 import Cases from "@/components/Cases";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
@@ -29,6 +28,7 @@ function jsonLd(lang: Locale) {
         },
         areaServed: [
           { "@type": "Country", name: "United States" },
+          { "@type": "Country", name: "United Kingdom" },
           { "@type": "Place", name: "Latin America" },
         ],
         knowsLanguage: ["es", "en"],
@@ -78,11 +78,10 @@ export default async function Page({
       />
       <Header dict={dict} lang={lang} />
       <main>
-        <Hero dict={dict} />
+        <Hero dict={dict} lang={lang} />
         <Cases dict={dict} />
         <Process dict={dict} />
-        <About dict={dict} />
-        <Contact dict={dict} />
+        <Contact dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
     </>

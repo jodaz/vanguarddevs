@@ -4,14 +4,10 @@ import type { Dictionary } from "@/lib/dictionaries";
 export default function Process({ dict }: { dict: Dictionary }) {
   return (
     <section id="process" aria-label={dict.nav.process}>
-      <SectionHead
-        heading={dict.process.heading}
-        label={dict.process.secLabel}
-      />
+      <SectionHead heading={dict.process.heading} />
       <div className="steps">
         {dict.process.steps.map((step) => (
-          <div className="step" key={step.num}>
-            <div className="num">{step.num}</div>
+          <div className="step" key={step.title}>
             <h3>{step.title}</h3>
             <p>{step.body}</p>
           </div>
@@ -37,6 +33,11 @@ export default function Process({ dict }: { dict: Dictionary }) {
             </div>
           </div>
         ))}
+      </div>
+      <div className="sec-cta">
+        <a className="btn" href="#contact">
+          {dict.nav.cta}
+        </a>
       </div>
     </section>
   );

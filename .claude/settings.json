@@ -6,5 +6,9 @@
       "Bash(curl -s \"https://api.iconify.design/ph.json?icons=cookie\")",
       "Bash(git status *)"
     ]
+  },
+  "attribution": {
+    "commit": "",
+    "pr": ""
   }
 }

@@ -1,18 +1,31 @@
 # VanguardDevs — vanguarddevs.com
 
-Bilingual (ES/EN) one-page site for VanguardDevs, a boutique product studio
-(MVPs & SaaS for founders in the USA and LATAM), founded by Jesus O. Built with
-Next.js App Router. The original static design lives in `design-reference/`.
-Copy voice is fully impersonal — no first person ("I" or "we") anywhere;
-VanguardDevs or the product is the subject.
+Bilingual (ES/EN) site for VanguardDevs, a boutique product studio founded by
+Jesus O., positioned on fintech / insurtech / lending: MVPs, multi-tenant SaaS
+and embedded infrastructure (widgets, SDKs, partner APIs) for clients in the
+USA, UK and LATAM. Built with Next.js App Router. The original static design
+lives in `design-reference/`. Copy voice is fully impersonal — no first person
+("I" or "we") anywhere; VanguardDevs or the product is the subject.
 
-Page structure: Hero → Case studies (`#cases`) → Process + packages (`#process`)
-→ About the founder (`#about`) → Contact (`#contact`). Single repeated CTA
-(message via WhatsApp); no forms.
+Landing page (`/es`, `/en`): Hero → Case studies (`#cases`) → Process + packages
+(`#process`) → Contact (`#contact`). Primary CTA is WhatsApp on `/es`; on `/en`
+it switches to a booking link once `BOOKING_URL` is filled in. No forms.
+
+Founder profile (`/es/jodaz`, `/en/jodaz`): two columns — name, role, bio and
+social links beside the photo — with a light/dark toggle scoped to that page.
+It renders the same `about.bio` copy the dictionary already holds, so the
+introduction is defined once.
+
+`components/Industries.tsx` is built and compiles but is intentionally not
+mounted; re-add it to `app/[lang]/page.tsx` (and its `#industries` link to
+`Header.tsx`) to bring the section back.
 
 Pending `[PLACEHOLDER]`s before launch (search the codebase for `PLACEHOLDER`):
-LinkedIn URL (`lib/site.ts`), two foreign-client case studies,
-package prices (`lib/dictionaries.ts`), and the founder photo (`components/About.tsx`).
+the Calendly/booking URL (`BOOKING_URL` in `lib/site.ts`, which gates the English
+primary CTA), two client testimonials, two package prices, the Akomo case body
+and the `lending` industry line (`lib/dictionaries.ts`).
+Unverified rather than absent: `LINKEDIN_PERSONAL_URL` is inferred from the
+`jodaz` handle and should be confirmed.
 Also pending: the real GA4 measurement ID (`NEXT_PUBLIC_GA_ID` in `.env.example`),
 the legal entity name and jurisdiction backing the privacy policy, a
 dedicated DPO/privacy contact (may reuse `CONTACT_EMAIL` or need its own),
@@ -32,17 +45,27 @@ npm run build  # production build (fully static pages)
 
 - `app/[lang]/` — one statically generated page per locale (`/es`, `/en`).
   Spanish is the default/x-default locale per brand guidelines.
-- `middleware.ts` — only handles `/`: 307-redirects to `/es` or `/en` based on
-  `Accept-Language` (Spanish wins on ambiguity).
+- `middleware.ts` — 307-redirects any unprefixed path to its locale version
+  (`/` → `/es`, `/jodaz` → `/es/jodaz`) based on `Accept-Language` (Spanish wins
+  on ambiguity). `/es/*` and `/en/*` pass through; the matcher skips Next
+  internals and anything with a file extension, which is what keeps
+  `robots.txt`, `sitemap.xml` and `/public` assets out of it.
 - `lib/dictionaries.ts` — all copy for both languages, typed. Edit content here.
-- `app/globals.css` — the brand system (Fog / Obsidian / Voltage Violet, 3px rules).
+- `app/globals.css` — the brand system (Fog / Obsidian / Voltage Violet), built
+  on hairline rules and generous whitespace, with contrast carried by type scale
+  rather than heavy borders. All colour goes through semantic tokens; body text
+  must clear 4.5:1 on both `--paper` and the `--tint` hover surface. Dark mode is
+  scoped to the profile page only.
 - `lib/fonts.ts` — self-hosted fonts (Anton, Archivo, IBM Plex Mono) via `next/font` —
   no external font requests, zero layout shift. Shared by the `[lang]` layout and the
   root 404 fallback (see below).
-- 404s: `components/NotFound.tsx` (shared glitch/terminal-styled body, shown
-  bilingually since `not-found.tsx` can't access the locale) is used by both
-  `app/[lang]/not-found.tsx` (broken links under `/es` or `/en`) and `app/not-found.tsx`
-  (anything else — the one place outside `[lang]` that renders its own `<html>`/`<body>`).
+- 404s: a single boundary, `app/not-found.tsx`, rendering `components/NotFound.tsx`
+  (glitch/terminal-styled body, shown bilingually since `not-found.tsx` can't access
+  the locale). It is the one place outside `[lang]` that renders its own
+  `<html>`/`<body>`. Next serves `notFound()` responses inside its own
+  `<html id="__next_error__">` shell because this app has no root `app/layout.tsx`,
+  so no not-found file can carry `<html lang>` — see CLAUDE.md for why the
+  alternatives cost more than they're worth.
 
 ## SEO checklist (implemented)
 
@@ -54,6 +77,10 @@ npm run build  # production build (fully static pages)
   areaServed), `WebSite`, `WebPage`.
 - `sitemap.xml` and `robots.txt` generated from code (`app/sitemap.ts`, `app/robots.ts`).
 - Per-locale Open Graph image generated at build (`app/[lang]/opengraph-image.tsx`).
+- `Person` JSON-LD on the profile page, so the founder's name is searchable and
+  resolves to this domain rather than a third-party profile.
+- Titles and descriptions carry the positioning keywords (fintech, insurtech,
+  multi-tenant SaaS, MVP).
 - Static generation (SSG) for both pages → fast TTFB and Core Web Vitals;
   zero client-side JS required for any content.
 
@@ -64,5 +91,8 @@ npm run build  # production build (fully static pages)
 3. Set up a Google Business Profile (helps for "desarrollo de software Venezuela"
    style local queries) and link it to the site.
 4. Keep publishing: the fastest ranking lever for a new domain is content —
-   consider a `/blog` or case-study section fed by the Instagram "Field notes"
-   pillar (P2 in the brand guide).
+   consider a `/notes` or case-study section fed by the Instagram "Field notes"
+   pillar (P2 in the brand guide). Deferred by the owner for now, along with the
+   CV download and live demo widget once floated for the profile page.
+5. Collect the two client testimonials — the render path is already wired, so
+   they only need pasting into the `testimonial` fields in `lib/dictionaries.ts`.

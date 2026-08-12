@@ -3,10 +3,12 @@ import LinkedInIcon from "@/components/icons/LinkedInIcon";
 import DotField from "@/components/reactbits/DotField/DotField";
 import { SectionBlur } from "@/components/SectionHead";
 import type { Dictionary } from "@/lib/dictionaries";
+import type { Locale } from "@/lib/i18n";
 import {
   CONTACT_EMAIL,
   INSTAGRAM_URL,
   LINKEDIN_URL,
+  primaryCta,
   WHATSAPP_URL,
 } from "@/lib/site";
 
@@ -22,7 +24,14 @@ const DOT_GRADIENT_FROM = "#5D2DE2";
 const DOT_GRADIENT_TO = "#8B77AC";
 const DOT_GLOW = "#241E33";
 
-export default function Contact({ dict }: { dict: Dictionary }) {
+export default function Contact({
+  dict,
+  lang,
+}: {
+  dict: Dictionary;
+  lang: Locale;
+}) {
+  const { href, booking } = primaryCta(lang);
   return (
     <section id="contact" aria-label={dict.contact.heading} className="contact">
       <div className="contact-bg" aria-hidden="true">
@@ -43,12 +52,24 @@ export default function Contact({ dict }: { dict: Dictionary }) {
       </div>
       <span className="mono">{dict.contact.secLabel}</span>
       <p className="display">
-        <a className="big" href={WHATSAPP_URL} target="_blank" rel="noopener">
-          <SectionBlur>{dict.contact.cta}</SectionBlur>{" "}
+        <a
+          className="big"
+          href={href}
+          target="_blank"
+          rel="noopener"
+        >
+          <SectionBlur>
+            {booking ? dict.contact.bookingCta : dict.contact.cta}
+          </SectionBlur>{" "}
           <span className="mark" aria-hidden="true" />
         </a>
       </p>
       <div className="row">
+        {booking && (
+          <a className="btn" href={WHATSAPP_URL} target="_blank" rel="noopener">
+            {dict.contact.cta}
+          </a>
+        )}
         <a className="btn" href={`mailto:${CONTACT_EMAIL}`}>
           {CONTACT_EMAIL}
         </a>

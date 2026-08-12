@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
-import { WHATSAPP_URL } from "@/lib/site";
+import { primaryCta } from "@/lib/site";
 
 export default function Header({
   dict,
@@ -10,6 +10,7 @@ export default function Header({
   dict: Dictionary;
   lang: Locale;
 }) {
+  const cta = primaryCta(lang);
   const links = [
     ["#cases", dict.nav.cases],
     ["#process", dict.nav.process],
@@ -41,8 +42,8 @@ export default function Header({
                 {label}
               </a>
             ))}
-            <a className="cta" href={WHATSAPP_URL} target="_blank" rel="noopener">
-              {dict.nav.cta}
+            <a className="cta" href={cta.href} target="_blank" rel="noopener">
+              {cta.booking ? dict.contact.bookingCta : dict.nav.cta}
             </a>
             <div className="lang-toggle" role="group" aria-label={dict.nav.ariaLang}>
               <Link href="/es" aria-current={lang === "es" ? "true" : undefined} hrefLang="es">
@@ -56,8 +57,8 @@ export default function Header({
         </details>
       </nav>
       <div className="header-actions">
-        <a className="cta" href={WHATSAPP_URL} target="_blank" rel="noopener">
-          {dict.nav.cta}
+        <a className="cta" href={cta.href} target="_blank" rel="noopener">
+          {cta.booking ? dict.contact.bookingCta : dict.nav.cta}
         </a>
         <div className="lang-toggle" role="group" aria-label={dict.nav.ariaLang}>
           <Link href="/es" aria-current={lang === "es" ? "true" : undefined} hrefLang="es">

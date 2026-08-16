@@ -22,9 +22,10 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  // Everything except Next internals and any path carrying a file extension.
-  // The extension rule is what keeps the root metadata routes and /public
+  // Everything except Next internals, API routes and any path carrying a
+  // file extension. Without the api/ exclusion /api/chat would 307 to
+  // /es/api/chat. The extension rule is what keeps the root metadata routes and /public
   // assets out: robots.txt, sitemap.xml, icon.svg, apple-icon.png,
   // manifest.webmanifest, favicon.ico, founder.jpeg.
-  matcher: ["/((?!_next/|.*\\.).*)"],
+  matcher: ["/((?!_next/|api/|.*\\.).*)"],
 };

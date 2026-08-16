@@ -116,6 +116,23 @@ export interface Dictionary {
     stackLine2: string;
     cta: string;
   };
+  /* Landing-page chat widget (components/ChatWidget.tsx). Only UI chrome lives
+     here — what the bot *knows* is derived from this same dictionary in
+     lib/chat-prompt.ts, never typed by hand. */
+  chat: {
+    title: string;
+    subtitle: string;
+    greeting: string;
+    suggestions: string[];
+    placeholder: string;
+    send: string;
+    open: string;
+    close: string;
+    disclaimer: string;
+    talkToHuman: string;
+    error: string;
+    rateLimited: string;
+  };
 }
 
 const es: Dictionary = {
@@ -325,6 +342,27 @@ const es: Dictionary = {
     stackLine2: "at build(vanguarddevs.com) — nunca llegó a producción",
     cta: "Volver al inicio",
   },
+  /* DRAFT — UI copy taken from the owner's widget/ drop, adjusted only for the
+     impersonal-voice and real-name rules; pending owner review. */
+  chat: {
+    title: "VanguardDevs",
+    subtitle: "Asistente · respuestas en segundos",
+    greeting:
+      "Hola 👋 Pregunta por los paquetes, el proceso o los tiempos de entrega.",
+    suggestions: [
+      "¿Cuánto cuesta un MVP?",
+      "¿En cuánto tiempo se entrega?",
+      "¿Cómo es el proceso?",
+    ],
+    placeholder: "Escribe tu pregunta",
+    send: "Enviar mensaje",
+    open: "Abrir chat",
+    close: "Cerrar chat",
+    disclaimer: "Respuestas generadas por IA.",
+    talkToHuman: "Hablar con Jesus O.",
+    error: "No hay respuesta disponible ahora mismo. Escribe por WhatsApp.",
+    rateLimited: "Demasiados mensajes. Espera un momento.",
+  },
 };
 
 const en: Dictionary = {
@@ -533,6 +571,25 @@ const en: Dictionary = {
     stackLine1: "at resolve(this/path) — missing from the route tree",
     stackLine2: "at build(vanguarddevs.com) — never shipped to production",
     cta: "Back to homepage",
+  },
+  /* DRAFT — English rewrite of the ES chat chrome; pending owner review. */
+  chat: {
+    title: "VanguardDevs",
+    subtitle: "Assistant · answers in seconds",
+    greeting: "Hi 👋 Ask about packages, the process or delivery times.",
+    suggestions: [
+      "How much does an MVP cost?",
+      "How long does delivery take?",
+      "What does the process look like?",
+    ],
+    placeholder: "Type your question",
+    send: "Send message",
+    open: "Open chat",
+    close: "Close chat",
+    disclaimer: "AI-generated answers.",
+    talkToHuman: "Talk to Jesus O.",
+    error: "No answer available right now. Reach out on WhatsApp.",
+    rateLimited: "Too many messages. Give it a moment.",
   },
 };
 

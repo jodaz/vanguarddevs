@@ -1,4 +1,5 @@
 import Cases from "@/components/Cases";
+import ChatWidget from "@/components/ChatWidget";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -84,6 +85,8 @@ export default async function Page({
         <Contact dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />
+      {/* Landing only, never in the layout. No key = no widget, not a broken one. */}
+      {process.env.GEMINI_API_KEY && <ChatWidget lang={lang} dict={dict.chat} />}
     </>
   );
 }

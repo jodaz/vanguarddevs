@@ -1,6 +1,6 @@
 import { GoogleGenAI } from "@google/genai";
 import { systemPrompt } from "@/lib/chat-prompt";
-import { isLocale, siteUrl } from "@/lib/i18n";
+import { isLocale } from "@/lib/i18n";
 
 export const runtime = "nodejs";
 export const maxDuration = 30;
@@ -29,10 +29,17 @@ type ChatMessage = { role: "user" | "assistant"; content: string };
 
 export async function POST(req: Request) {
   // Browsers always send Origin on cross-site POST; a foreign one is a script
-  // farming the key. Absent Origin (curl, same-origin GET-less) is allowed.
+  // farming the key. Absent Origin (curl) is allowed. Same-origin is judged
+  // against the request's own host, not siteUrl: prod serves www., previews
+  // serve *.vercel.app, and a hard-coded origin 403'd all of them.
   const origin = req.headers.get("origin");
-  if (origin && origin !== siteUrl && process.env.NODE_ENV === "production") {
-    return new Response(null, { status: 403 });
+  const host = req.headers.get("x-forwarded-host") ?? req.headers.get("host");
+  if (origin && process.env.NODE_ENV === "production") {
+    let originHost = "";
+    try {
+      originHost = new URL(origin).host;
+    } catch {}
+    if (originHost !== host) return new Response(null, { status: 403 });
   }
 
   const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";

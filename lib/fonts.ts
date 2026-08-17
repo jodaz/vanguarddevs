@@ -20,7 +20,7 @@ export const archivo = Archivo({
 });
 
 export const plexMono = IBM_Plex_Mono({
-  weight: ["400", "500"],
+  weight: ["400", "500", "600"],
   subsets: ["latin"],
   variable: "--font-mono",
   display: "swap",

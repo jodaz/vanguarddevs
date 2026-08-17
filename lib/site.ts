@@ -5,7 +5,8 @@ export const WHATSAPP_URL = "https://wa.me/584248270139";
 export const CONTACT_EMAIL = "hello@vanguarddevs.com";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/vanguarddevs";
 export const INSTAGRAM_URL = "https://instagram.com/vanguarddevs";
-export const DESIGNER_URL = "https://jodaz.xyz";
+// Founder's own site, linked from the footer.
+export const JODAZ_URL = "https://jodaz.vanguarddevs.com";
 
 /* Personal accounts, used only by the /jodaz profile page — the LINKEDIN_URL
    and INSTAGRAM_URL above are the VanguardDevs company accounts. */

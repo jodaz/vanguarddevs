@@ -92,7 +92,6 @@ export interface Dictionary {
   };
   footer: {
     tagline: string;
-    credit: string;
     privacyLink: string;
     cookieSettings: string;
   };
@@ -163,22 +162,6 @@ const es: Dictionary = {
   cases: {
     heading: "Casos de estudio",
     items: [
-      {
-        name: "Insurtech · Reino Unido",
-        tag: "Anonimizado — sector seguros, UK",
-        body: "Las aseguradoras perdían clientes en la renovación, sin herramientas de retención en su propio portal. Decisiones técnicas: retención embebida como widget, integrada vía API con los sistemas del partner, sin migrar nada. Resultado: en producción dentro de portales de aseguradoras del Reino Unido.",
-        // url vacío: caso anonimizado sin URL pública. Cases.tsx omite el enlace cuando url === "".
-        url: "",
-        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
-      },
-      {
-        name: "Plataforma de cashback multi-tenant",
-        tag: "Anonimizado — fintech, multi-marca",
-        body: "Varias marcas querían ofrecer cashback sin construir cada una su infraestructura ni mezclar sus datos. Decisiones técnicas: widget embebible y API para partners sobre un ledger de doble entrada, con aislamiento multi-tenant en la base de datos vía Row Level Security, no en la capa de aplicación. Resultado: cada marca opera aislada y los saldos cuadran contra el proveedor externo.",
-        // url vacío: caso anonimizado sin URL pública. Cases.tsx omite el enlace cuando url === "".
-        url: "",
-        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
-      },
       {
         name: "ZonaCrono",
         tag: "Producto propio — inscripciones deportivas",
@@ -283,7 +266,6 @@ const es: Dictionary = {
   },
   footer: {
     tagline: "vanguarddevs.com",
-    credit: "Diseñado por",
     privacyLink: "Privacidad",
     cookieSettings: "Cookies",
   },
@@ -394,22 +376,6 @@ const en: Dictionary = {
     heading: "Case studies",
     items: [
       {
-        name: "Insurtech · United Kingdom",
-        tag: "Anonymized — insurance sector, UK",
-        body: "Insurers were losing customers at renewal, with no retention tooling inside their own portal. Technical decisions: retention embedded as a widget and wired to the partner's systems through an API, with nothing to migrate. Result: running in production inside UK insurer portals.",
-        // Empty url: anonymized case with no public URL. Cases.tsx skips the link when url === "".
-        url: "",
-        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
-      },
-      {
-        name: "Multi-tenant cashback platform",
-        tag: "Anonymized — fintech, multi-brand",
-        body: "Several brands wanted to offer cashback without each building the infrastructure, and without their data ever mixing. Technical decisions: an embeddable widget and a partner API over a double-entry ledger, with multi-tenant isolation enforced in the database through Row Level Security rather than in application code. Result: every brand runs isolated, and balances reconcile against the external provider.",
-        // Empty url: anonymized case with no public URL. Cases.tsx skips the link when url === "".
-        url: "",
-        testimonial: { quote: "[PLACEHOLDER]", by: "[PLACEHOLDER]" },
-      },
-      {
         name: "ZonaCrono",
         tag: "Own product — race registration",
         body: "Organizers ran registrations through WhatsApp and spreadsheets: chaos, errors and lost hours. Technical decisions: online registration and payment, with atomic slot reservation at checkout to close the race condition that oversold places when several people paid at once. Result: in production, with paying organizers.",
@@ -513,7 +479,6 @@ const en: Dictionary = {
   },
   footer: {
     tagline: "vanguarddevs.com",
-    credit: "Designed by",
     privacyLink: "Privacy",
     cookieSettings: "Cookies",
   },

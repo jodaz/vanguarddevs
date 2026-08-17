@@ -33,11 +33,6 @@ export default function Cases({ dict }: { dict: Dictionary }) {
           </article>
         ))}
       </div>
-      <div className="sec-cta">
-        <a className="btn" href="#contact">
-          {dict.nav.cta}
-        </a>
-      </div>
     </section>
   );
 }

@@ -18,6 +18,7 @@
   --rule: 1px solid rgba(22, 18, 31, 0.14);
   --rule-strong: 1px solid rgba(22, 18, 31, 0.24);
   --pad: clamp(24px, 5vw, 88px);
+  --header-h: 72px;
   color-scheme: light;
 }
 
@@ -81,6 +82,7 @@ a {
 .mono {
   font-family: var(--font-mono), monospace;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.12em;
   line-height: 1.5;
   text-transform: uppercase;
@@ -111,9 +113,41 @@ header {
   z-index: 50;
   display: flex;
   align-items: stretch;
+  height: var(--header-h);
   background: var(--paper);
-  /* sticky over scrolling content: needs a definite edge, not a hairline */
-  border-bottom: var(--rule-strong);
+  /* borderless by design; the bar is transparent over the hero (see the
+     scroll-driven block below) so it can't carry an edge of its own */
+}
+
+/* Over the hero the bar is transparent with --paper type; during the last
+   48px before the hero's bottom edge passes the bar it fades to the opaque
+   --paper/--ink state. Scroll-driven, no JS: browsers without view
+   timelines (and prefers-reduced-motion, which kills all animation) keep
+   the opaque bar. Pages without a .hero (privacy) have an inactive
+   timeline, so the animation has no effect there. */
+@supports (animation-timeline: view()) {
+  body {
+    timeline-scope: --hero;
+  }
+  .hero {
+    view-timeline: --hero block;
+  }
+  header {
+    animation: header-solid linear both;
+    animation-timeline: --hero;
+    animation-range: exit calc(100% - var(--header-h) - 48px)
+      exit calc(100% - var(--header-h));
+  }
+  @keyframes header-solid {
+    from {
+      background: transparent;
+      color: var(--paper);
+    }
+    to {
+      background: var(--paper);
+      color: var(--ink);
+    }
+  }
 }
 
 .logo {
@@ -125,13 +159,12 @@ header {
   font-size: 20px;
   text-transform: uppercase;
   text-decoration: none;
-  border-right: var(--rule);
 }
 
 .logo-icon {
   width: 22px;
   height: 22px;
-  border: 2px solid var(--ink);
+  border: 2px solid currentColor;
   border-radius: 6px;
 }
 
@@ -153,9 +186,9 @@ nav a,
   text-decoration: none;
   font-family: var(--font-mono), monospace;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border-left: var(--rule);
   transition: background 0.15s, color 0.15s;
 }
 
@@ -193,7 +226,6 @@ nav a:focus-visible {
   align-items: center;
   height: 100%;
   padding: 0 20px;
-  border-left: var(--rule);
   cursor: pointer;
   list-style: none;
   transition: background 0.15s, color 0.15s;
@@ -228,6 +260,8 @@ nav a:focus-visible {
   display: flex;
   flex-direction: column;
   background: var(--paper);
+  /* explicit: the header's type is --paper over the hero */
+  color: var(--ink);
   border-bottom: var(--rule);
 }
 
@@ -284,18 +318,20 @@ nav a:focus-visible {
 .lang-toggle {
   display: flex;
   align-items: center;
-  border-left: var(--rule);
 }
 
 .lang-toggle a {
   font-family: var(--font-mono), monospace;
   font-size: 12px;
+  font-weight: 600;
   letter-spacing: 0.08em;
   display: flex;
   align-items: center;
   padding: 0 14px;
   height: 100%;
-  color: var(--steel);
+  /* follows the header's color (ink on paper, paper over the hero) at a
+     steel-like weight instead of a fixed --steel that vanishes on the hero */
+  color: color-mix(in srgb, currentColor 70%, transparent);
   text-transform: uppercase;
   text-decoration: none;
   border-left: none;
@@ -323,7 +359,10 @@ nav a:focus-visible {
 .hero {
   background: var(--ink);
   color: var(--paper);
-  padding: clamp(64px, 11vh, 148px) var(--pad);
+  /* runs under the transparent sticky header */
+  margin-top: calc(-1 * var(--header-h));
+  padding: calc(clamp(64px, 11vh, 148px) + var(--header-h)) var(--pad)
+    clamp(64px, 11vh, 148px);
   position: relative;
   overflow: hidden;
 }
@@ -423,7 +462,7 @@ h1 .line-word {
 section {
   border-bottom: var(--rule);
   /* land anchor targets below the sticky header */
-  scroll-margin-top: 72px;
+  scroll-margin-top: var(--header-h);
 }
 
 .sec-head {
@@ -535,6 +574,7 @@ h2 {
 
 .svc li {
   font-family: var(--font-mono), monospace;
+  font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -563,6 +603,7 @@ h2 {
   display: block;
   margin-top: 12px;
   font-family: var(--font-mono), monospace;
+  font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -607,6 +648,7 @@ h2 {
   color: var(--steel);
   padding: 8px 14px;
   font-family: var(--font-mono), monospace;
+  font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -818,6 +860,7 @@ h2 {
   gap: 12px;
   text-decoration: none;
   font-family: var(--font-mono), monospace;
+  font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -956,6 +999,7 @@ footer a:focus-visible {
   cursor: pointer;
   color: inherit;
   font-family: var(--font-mono), monospace;
+  font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -1112,6 +1156,7 @@ body:has(> .profile[data-theme="dark"]) {
   align-items: center;
   gap: 10px;
   font-family: var(--font-mono), monospace;
+  font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1149,6 +1194,7 @@ body:has(> .profile[data-theme="dark"]) {
   border: none;
   cursor: pointer;
   font-family: var(--font-mono), monospace;
+  font-weight: 600;
   font-size: 12px;
   letter-spacing: 0.08em;
   text-transform: uppercase;

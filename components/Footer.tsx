@@ -2,7 +2,7 @@ import Link from "next/link";
 import CookieSettingsButton from "@/components/CookieSettingsButton";
 import type { Dictionary } from "@/lib/dictionaries";
 import type { Locale } from "@/lib/i18n";
-import { DESIGNER_URL } from "@/lib/site";
+import { JODAZ_URL } from "@/lib/site";
 
 export default function Footer({
   dict,
@@ -14,9 +14,9 @@ export default function Footer({
   return (
     <footer>
       <span className="mono">
-        © {new Date().getFullYear()} VanguardDevs · {dict.footer.credit}{" "}
-        <a href={DESIGNER_URL} target="_blank" rel="noopener">
-          jodaz.xyz
+        © {new Date().getFullYear()} <Link href={`/${lang}`}>VanguardDevs</Link> ·{" "}
+        <a href={JODAZ_URL} target="_blank" rel="noopener">
+          JODAZ
         </a>
       </span>
       <span className="mono">{dict.footer.tagline}</span>

@@ -32,6 +32,7 @@ export interface Dictionary {
     cases: string;
     industries: string;
     process: string;
+    services: string;
     cta: string;
     ariaMain: string;
     ariaLang: string;
@@ -57,6 +58,10 @@ export interface Dictionary {
   process: {
     heading: string;
     steps: { title: string; body: string }[];
+  };
+  /* "What we do" — the packages section (components/Services.tsx). */
+  services: {
+    heading: string;
     packagesIntro: string;
     venezuelaIntro: string;
     venezuelaCta: string;
@@ -146,6 +151,7 @@ const es: Dictionary = {
     cases: "Proyectos",
     industries: "Industrias",
     process: "La hoja de ruta",
+    services: "Qué hacemos por ti",
     cta: "Empieza ahora",
     ariaMain: "Principal",
     ariaLang: "Idioma / Language",
@@ -217,6 +223,9 @@ const es: Dictionary = {
         body: "Lanza, mide, endurece. El go-live no es una despedida: soporte e iteración son parte del trabajo, no un extra.",
       },
     ],
+  },
+  services: {
+    heading: "Qué hacemos por ti",
     packagesIntro: "Paquetes con resultado definido, no horas.",
     venezuelaIntro: "¿Eres de Venezuela 🇻🇪?",
     venezuelaCta: "Pregunta por un precio especial para ti",
@@ -359,6 +368,7 @@ const en: Dictionary = {
     cases: "Projects",
     industries: "Industries",
     process: "The roadmap",
+    services: "What we do",
     cta: "Start now",
     ariaMain: "Main",
     ariaLang: "Idioma / Language",
@@ -430,6 +440,9 @@ const en: Dictionary = {
         body: "Launch, measure, harden. Go-live is not a goodbye: support and iteration are part of the job, not an extra.",
       },
     ],
+  },
+  services: {
+    heading: "What we do",
     packagesIntro: "Packages with a defined outcome, not hours.",
     venezuelaIntro: "Are you from Venezuela 🇻🇪?",
     venezuelaCta: "Ask about a special price for you",

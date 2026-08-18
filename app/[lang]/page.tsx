@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Process from "@/components/Process";
+import Services from "@/components/Services";
 import { getDictionary } from "@/lib/dictionaries";
 import { siteUrl, type Locale } from "@/lib/i18n";
 import { CONTACT_EMAIL, INSTAGRAM_URL, LINKEDIN_URL } from "@/lib/site";
@@ -33,7 +34,7 @@ function jsonLd(lang: Locale) {
           { "@type": "Place", name: "Latin America" },
         ],
         knowsLanguage: ["es", "en"],
-        makesOffer: dict.process.packages.map((pkg) => ({
+        makesOffer: dict.services.packages.map((pkg) => ({
           "@type": "Offer",
           itemOffered: {
             "@type": "Service",
@@ -80,8 +81,9 @@ export default async function Page({
       <Header dict={dict} lang={lang} />
       <main>
         <Hero dict={dict} lang={lang} />
-        <Process dict={dict} />
+        <Services dict={dict} />
         <Cases dict={dict} />
+        <Process dict={dict} />
         <Contact dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />

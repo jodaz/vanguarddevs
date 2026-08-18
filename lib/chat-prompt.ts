@@ -38,10 +38,10 @@ ${d.cases.items
 ## ${d.process.heading}
 ${d.process.steps.map((s, i) => `${i + 1}. **${s.title}** — ${s.body}`).join("\n")}
 
-## ${d.process.packagesIntro}
-${d.process.packages.map((p) => `- **${p.title} — ${price(p.price)}.** ${p.body}`).join("\n")}
+## ${d.services.heading} — ${d.services.packagesIntro}
+${d.services.packages.map((p) => `- **${p.title} — ${price(p.price)}.** ${p.body}`).join("\n")}
 
-${d.process.venezuelaIntro} ${d.process.venezuelaCta}: ${WHATSAPP_URL}
+${d.services.venezuelaIntro} ${d.services.venezuelaCta}: ${WHATSAPP_URL}
 
 ## ${d.contact.heading}
 - ${cta.booking ? `${d.contact.bookingCta}: ${cta.href}\n- ` : ""}WhatsApp: ${WHATSAPP_URL}

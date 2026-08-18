@@ -13,32 +13,6 @@ export default function Process({ dict }: { dict: Dictionary }) {
           </div>
         ))}
       </div>
-      <div className="next">
-        <span className="mono">{dict.process.packagesIntro}</span>
-        <p className="venezuela-note">
-          {dict.process.venezuelaIntro}{" "}
-          <a href="#contact" className="venezuela-cta">
-            {dict.process.venezuelaCta}
-          </a>
-        </p>
-      </div>
-      <div className="packages">
-        {dict.process.packages.map((pkg) => (
-          <div className="pkg" key={pkg.title}>
-            <span className="mark" aria-hidden="true" />
-            <div>
-              <h3>{pkg.title}</h3>
-              <p className="mono price">{pkg.price}</p>
-              <p>{pkg.body}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div className="sec-cta">
-        <a className="btn" href="#contact">
-          {dict.nav.cta}
-        </a>
-      </div>
     </section>
   );
 }

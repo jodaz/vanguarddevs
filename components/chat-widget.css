@@ -91,6 +91,21 @@
     transform: translateY(8px);
   }
 }
+/* phones: the panel is the whole viewport, no corners */
+@media (max-width: 600px) {
+  .chat-panel {
+    inset: 0;
+    width: auto;
+    height: 100dvh;
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  /* the open panel covers the FAB's spot; the header's close button takes over */
+  .chat-panel + .chat-fab {
+    display: none;
+  }
+}
 
 .chat-head {
   display: flex;
@@ -103,6 +118,7 @@
 .chat-head strong {
   display: block;
   font-weight: 600;
+  color: var(--chat-accent);
 }
 .chat-head small {
   display: block;

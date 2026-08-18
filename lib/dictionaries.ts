@@ -18,6 +18,8 @@ export interface IndustryItem {
 
 export interface PackageItem {
   title: string;
+  /** Not rendered on the page (owner's call) — only the chat prompt
+      (lib/chat-prompt.ts) exposes it, so the bot can quote it. */
   price: string;
   body: string;
 }

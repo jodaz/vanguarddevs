@@ -822,7 +822,7 @@ h2 {
 .packages {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border-top: var(--rule-strong);
+  border-bottom: var(--rule-strong);
 }
 
 @media (max-width: 900px) {
@@ -869,10 +869,6 @@ h2 {
   margin-bottom: 6px;
 }
 
-.pkg .price {
-  color: var(--signal-text);
-  margin-bottom: 18px;
-}
 
 .pkg p {
   color: var(--steel);

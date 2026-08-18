@@ -957,7 +957,7 @@ h2 {
   /* currentColor keeps the button edge legible on both the light page and
      the inverted --ink surfaces without a second token */
   border: 1px solid currentColor;
-  padding: 18px 30px;
+  padding: 9px 12px;
   transition: background 0.15s, color 0.15s, border-color 0.15s;
 }
 
@@ -985,7 +985,7 @@ h2 {
 }
 
 .btn.icon {
-  padding: 17px;
+  padding: 6px;
 }
 
 .btn.icon svg {

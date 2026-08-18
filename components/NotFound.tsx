@@ -13,13 +13,11 @@ const DOT_GRADIENT_FROM = "#5D2DE2";
 const DOT_GRADIENT_TO = "#8B77AC";
 const DOT_GLOW = "#241E33";
 
-/* This is the shared 404 body for both not-found entry points
-   (app/[lang]/not-found.tsx and the root app/not-found.tsx). Next.js
-   doesn't pass route params to not-found.tsx, even nested under a
-   dynamic segment, so this component can't know which locale it's
-   rendering under — it renders both ES and EN copy directly instead of
-   accepting a dict prop. Spanish first, per the site's "Spanish leads"
-   rule. */
+/* The 404 body rendered by app/global-not-found.tsx. Next.js doesn't pass
+   route params to a not-found page, so this component can't know which
+   locale it's rendering under — it renders both ES and EN copy directly
+   instead of accepting a dict prop. Spanish first, per the site's
+   "Spanish leads" rule. */
 export default function NotFound() {
   const es = getDictionary("es");
   const en = getDictionary("en");

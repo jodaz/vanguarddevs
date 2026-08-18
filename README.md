@@ -59,13 +59,12 @@ npm run build  # production build (fully static pages)
 - `lib/fonts.ts` — self-hosted fonts (Anton, Archivo, IBM Plex Mono) via `next/font` —
   no external font requests, zero layout shift. Shared by the `[lang]` layout and the
   root 404 fallback (see below).
-- 404s: a single boundary, `app/not-found.tsx`, rendering `components/NotFound.tsx`
-  (glitch/terminal-styled body, shown bilingually since `not-found.tsx` can't access
-  the locale). It is the one place outside `[lang]` that renders its own
-  `<html>`/`<body>`. Next serves `notFound()` responses inside its own
-  `<html id="__next_error__">` shell because this app has no root `app/layout.tsx`,
-  so no not-found file can carry `<html lang>` — see CLAUDE.md for why the
-  alternatives cost more than they're worth.
+- 404s: a single file, `app/global-not-found.tsx` (Next's `experimental.globalNotFound`),
+  rendering `components/NotFound.tsx` (glitch/terminal-styled body, shown bilingually
+  since a not-found page can't access the locale). It is the one place outside `[lang]`
+  that renders its own `<html>`/`<body>`, hard-coded to `lang="es"` — this app has no
+  root `app/layout.tsx`, and a plain `app/not-found.tsx` would demand one; see
+  CLAUDE.md for why the alternatives cost more than they're worth.
 
 ## SEO checklist (implemented)
 

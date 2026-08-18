@@ -151,10 +151,9 @@ const es: Dictionary = {
   },
   hero: {
     ariaLabel: "Introducción",
-    headlineStart:
-      "Tu idea convertida en un producto funcionando y en manos de usuarios reales —",
-    headlineAccent: "en semanas, no meses.",
-    sub: "Estudio de producto para fintech, insurtech y ecommerce: MVPs y SaaS, tiendas online, landing pages e infraestructura embebida (widgets, SDKs y APIs para partners). Alcance fijo, entregas que puedes probar desde la primera semana y trato directo con quien construye — en remoto, con clientes de USA, UK y LATAM.",
+    headlineStart: "Productos donde el dinero tiene que cuadrar,",
+    headlineAccent: "lanzados en semanas.",
+    sub: "Experiencia en tecnología puesta al servicio de flujos de trabajo más eficientes y rentables, en fintech, insurtech y ecommerce.",
     ctaPrimary: "Empieza ahora",
     ctaSecondary: "Ver proyectos",
   },
@@ -362,10 +361,9 @@ const en: Dictionary = {
   },
   hero: {
     ariaLabel: "Intro",
-    headlineStart:
-      "Your idea turned into a working product in the hands of real users —",
-    headlineAccent: "in weeks, not months.",
-    sub: "A product studio for fintech, insurtech and ecommerce: MVPs and SaaS, online stores, landing pages and embedded infrastructure — widgets, SDKs and partner APIs. Fixed scope, deliverables you can click through from week one, and a direct line to the person building it. Remote, with clients in the USA, UK and LATAM.",
+    headlineStart: "Products where the money has to balance,",
+    headlineAccent: "shipped in weeks.",
+    sub: "Engineering experience put to work on more efficient, more profitable workflows — in fintech, insurtech and ecommerce.",
     ctaPrimary: "Start now",
     ctaSecondary: "See projects",
   },

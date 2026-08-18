@@ -28,6 +28,7 @@
    keeping the accent-scarcity rule intact. */
 header,
 .hero,
+.cases,
 .contact,
 .not-found {
   --signal-text: #9b7bff;
@@ -659,6 +660,44 @@ h2 {
   text-transform: uppercase;
   font-style: normal;
   color: var(--steel);
+}
+
+/* ---------- case studies: inverted band with ghosted screenshots ---------- */
+.cases {
+  background: var(--ink);
+  color: var(--paper);
+  /* light steel/tint so body copy and hover read on --ink */
+  --steel: #aaa5b9;
+  --tint: rgba(236, 234, 241, 0.05);
+}
+
+.cases .svc {
+  overflow: hidden;
+  /* own stacking context so the ghost's z-index:-1 sits under the card's
+     text but above its background */
+  isolation: isolate;
+}
+
+/* decorative screenshot bleeding out of the corner; sharpens on hover */
+.case-ghost {
+  position: absolute;
+  right: -80px;
+  bottom: -80px;
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0.1;
+  filter: grayscale(1) blur(2px);
+  pointer-events: none;
+  transition: opacity 1s, transform 1s;
+}
+
+.svc:hover .case-ghost,
+.svc:focus-within .case-ghost {
+  opacity: 0.2;
+  transform: scale(1.1);
 }
 
 .case-link {

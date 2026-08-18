@@ -6,6 +6,8 @@ export interface CaseItem {
   body: string;
   /** Empty string for anonymized or unreleased work — Cases.tsx skips the link when url is "" (all current cases have one). */
   url: string;
+  /** Ghosted screenshot bleeding out of the card's corner (public/cases/*). Decorative, alt="". */
+  image: string;
   testimonial?: { quote: string; by: string };
 }
 
@@ -165,12 +167,15 @@ const es: Dictionary = {
         tag: "SaaS de inscripciones para eventos deportivos",
         body: "Los organizadores gestionaban inscripciones por WhatsApp y planillas: caos, errores y horas perdidas. Decisiones técnicas: inscripción y pago online, con reserva atómica de cupos en el checkout para cerrar la condición de carrera que vendía más plazas de las disponibles. Resultado: en producción, con organizadores que pagan por usarlo.",
         url: "https://zonacrono.com",
+        image: "/cases/zonacrono.webp",
       },
       {
         name: "Akomo",
         tag: "Datos de tipo de cambio — Venezuela",
         body: "Venezuela opera con dos tasas de cambio a la vez, sin una fuente única que registre ambas en el tiempo. Decisiones técnicas: el bolívar (VES) frente a USD, EUR y USDT desde el BCV y Binance P2P, sobre un log append-only: cada sync agrega una fila, ninguna se actualiza. Resultado: todo lo demás es una superficie sobre ese log — ese es el foso.",
         url: "https://akomo.xyz",
+        // Owner's call: reuse the ZonaCrono shot until Akomo has a public UI.
+        image: "/cases/zonacrono.webp",
       },
     ],
   },
@@ -375,12 +380,15 @@ const en: Dictionary = {
         tag: "Registration SaaS for sport events",
         body: "Organizers ran registrations through WhatsApp and spreadsheets: chaos, errors and lost hours. Technical decisions: online registration and payment, with atomic slot reservation at checkout to close the race condition that oversold places when several people paid at once. Result: in production, with paying organizers.",
         url: "https://zonacrono.com",
+        image: "/cases/zonacrono.webp",
       },
       {
         name: "Akomo",
         tag: "Exchange-rate data — Venezuela",
         body: "Venezuela runs on two exchange rates at once, with no single source recording both over time. Technical decisions: the bolívar (VES) against USD, EUR and USDT from the central bank (BCV) and Binance P2P, on an append-only log — every sync appends a row, none are updated. Result: everything else is a surface over that log, and the log is the moat.",
         url: "https://akomo.xyz",
+        // Owner's call: reuse the ZonaCrono shot until Akomo has a public UI.
+        image: "/cases/zonacrono.webp",
       },
     ],
   },

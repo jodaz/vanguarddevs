@@ -3,11 +3,12 @@ import type { Dictionary } from "@/lib/dictionaries";
 
 export default function Cases({ dict }: { dict: Dictionary }) {
   return (
-    <section id="cases" aria-label={dict.nav.cases}>
+    <section id="cases" className="cases" aria-label={dict.nav.cases}>
       <SectionHead heading={dict.cases.heading} />
       <div className="services">
         {dict.cases.items.map((item) => (
           <article className="svc" key={item.name}>
+            <img className="case-ghost" src={item.image} alt="" aria-hidden="true" loading="lazy" />
             <div className="code mono">
               <span>{item.tag}</span>
             </div>

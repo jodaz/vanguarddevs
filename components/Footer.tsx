@@ -19,7 +19,6 @@ export default function Footer({
           JODAZ
         </a>
       </span>
-      <span className="mono">{dict.footer.tagline}</span>
       <span className="mono footer-links">
         <Link href={`/${lang}/privacy`}>{dict.footer.privacyLink}</Link>
         <CookieSettingsButton label={dict.footer.cookieSettings} />

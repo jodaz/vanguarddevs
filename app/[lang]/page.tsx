@@ -80,8 +80,8 @@ export default async function Page({
       <Header dict={dict} lang={lang} />
       <main>
         <Hero dict={dict} lang={lang} />
-        <Cases dict={dict} />
         <Process dict={dict} />
+        <Cases dict={dict} />
         <Contact dict={dict} lang={lang} />
       </main>
       <Footer dict={dict} lang={lang} />

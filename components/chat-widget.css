@@ -57,7 +57,10 @@
   border-radius: 999px;
   background: var(--chat-accent);
   color: var(--chat-on-accent);
-  box-shadow: var(--chat-shadow);
+  /* soft accent halo instead of the neutral panel shadow */
+  box-shadow:
+    0 0 0 6px color-mix(in srgb, var(--chat-accent) 18%, transparent),
+    0 8px 28px color-mix(in srgb, var(--chat-accent) 45%, transparent);
   cursor: pointer;
   transition: transform 150ms ease;
 }

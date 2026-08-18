@@ -12,8 +12,8 @@ export default function Header({
 }) {
   const cta = primaryCta(lang);
   const links = [
-    ["#cases", dict.nav.cases],
     ["#process", dict.nav.process],
+    ["#cases", dict.nav.cases],
   ] as const;
 
   return (

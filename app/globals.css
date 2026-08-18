@@ -26,6 +26,7 @@
    only reaches 2.6:1 on Obsidian, so violet-as-text lifts to a tint that
    clears AA there; --signal itself (violet as a *background*) is untouched,
    keeping the accent-scarcity rule intact. */
+header,
 .hero,
 .contact,
 .not-found {
@@ -114,14 +115,15 @@ header {
   display: flex;
   align-items: stretch;
   height: var(--header-h);
-  background: var(--paper);
+  /* inverted like the hero/contact bands: --ink bar, --paper type */
+  background: var(--ink);
+  color: var(--paper);
   /* borderless by design; the bar is transparent over the hero (see the
      scroll-driven block below) so it can't carry an edge of its own */
 }
 
-/* Over the hero the bar is transparent with --paper type; during the last
-   48px before the hero's bottom edge passes the bar it fades to the opaque
-   --paper/--ink state. Scroll-driven, no JS: browsers without view
+/* Over the hero the bar is transparent; during the last 48px before the
+   hero's bottom edge passes the bar it fades to the opaque --ink state. Scroll-driven, no JS: browsers without view
    timelines (and prefers-reduced-motion, which kills all animation) keep
    the opaque bar. Pages without a .hero (privacy) have an inactive
    timeline, so the animation has no effect there. */
@@ -141,11 +143,9 @@ header {
   @keyframes header-solid {
     from {
       background: transparent;
-      color: var(--paper);
     }
     to {
-      background: var(--paper);
-      color: var(--ink);
+      background: var(--ink);
     }
   }
 }
@@ -194,8 +194,8 @@ nav a,
 
 nav a:hover,
 nav a:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .header-actions .cta {
@@ -205,8 +205,8 @@ nav a:focus-visible {
 
 .header-actions .cta:hover,
 .header-actions .cta:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 /* borders are hairlines now, so the focus ring is the loudest edge on the
@@ -237,8 +237,8 @@ nav a:focus-visible {
 
 .menu summary:hover,
 .menu[open] summary {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .menu-icon {
@@ -259,10 +259,21 @@ nav a:focus-visible {
   right: 0;
   display: flex;
   flex-direction: column;
-  background: var(--paper);
-  /* explicit: the header's type is --paper over the hero */
-  color: var(--ink);
+  background: var(--ink);
+  color: var(--paper);
   border-bottom: var(--rule);
+}
+
+/* open-only reveal; <details> can't animate close without JS */
+.menu[open] .menu-panel {
+  animation: menu-in 0.18s ease-out;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
 }
 
 .menu-panel a {
@@ -284,8 +295,8 @@ nav a:focus-visible {
 
 .menu-panel .cta:hover,
 .menu-panel .cta:focus-visible {
-  background: var(--ink);
-  color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .menu-panel .lang-toggle {
@@ -339,8 +350,8 @@ nav a:focus-visible {
 }
 
 .lang-toggle a[aria-current="true"] {
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--paper);
 }
 
 .lang-toggle a:hover {
@@ -349,8 +360,8 @@ nav a:focus-visible {
 }
 
 .lang-toggle a[aria-current="true"]:hover {
-  color: var(--paper);
-  background: var(--ink);
+  color: var(--ink);
+  background: var(--paper);
 }
 
 /* ---------- hero ---------- */
@@ -819,7 +830,8 @@ h2 {
 }
 
 .contact > .mono {
-  color: rgba(236, 234, 241, 0.55);
+  color: var(--signal-text);
+  font-size: clamp(16px, 1.8vw, 24px);
 }
 
 .contact .display {

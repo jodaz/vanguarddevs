@@ -4,7 +4,7 @@ export interface CaseItem {
   name: string;
   tag: string;
   body: string;
-  /** Empty string for anonymized or unreleased work — Cases.tsx skips the link when url is "". */
+  /** Empty string for anonymized or unreleased work — Cases.tsx skips the link when url is "" (all current cases have one). */
   url: string;
   testimonial?: { quote: string; by: string };
 }
@@ -91,7 +91,6 @@ export interface Dictionary {
     socialInstagram: string;
   };
   footer: {
-    tagline: string;
     privacyLink: string;
     cookieSettings: string;
   };
@@ -136,10 +135,10 @@ export interface Dictionary {
 
 const es: Dictionary = {
   meta: {
-    title: "VanguardDevs — MVPs fintech, insurtech y SaaS multi-tenant",
+    title: "VanguardDevs — Estudio de producto: MVPs, SaaS y ecommerce",
     description:
-      "Estudio boutique de producto: MVPs, SaaS multi-tenant e infraestructura embebida para fintech, insurtech y lending. Ledgers que cuadran. USA, UK y LATAM.",
-    ogAlt: "VanguardDevs — MVPs fintech, insurtech y SaaS multi-tenant",
+      "Estudio de producto para fintech, insurtech y ecommerce: MVPs, SaaS, tiendas online, landing pages e infraestructura embebida. En semanas, no meses. USA, UK y LATAM.",
+    ogAlt: "VanguardDevs — Estudio de producto: MVPs, SaaS y ecommerce",
   },
   nav: {
     cases: "Proyectos",
@@ -155,7 +154,7 @@ const es: Dictionary = {
     headlineStart:
       "Tu idea convertida en un producto funcionando y en manos de usuarios reales —",
     headlineAccent: "en semanas, no meses.",
-    sub: "Estudio de producto para fintech, insurtech y lending: MVPs, SaaS multi-tenant e infraestructura embebida (widgets, SDKs y APIs para partners). Sistemas donde el dinero debe cuadrar —ledgers, conciliación, redenciones, integraciones de pago— en remoto con clientes de USA, UK y LATAM.",
+    sub: "Estudio de producto para fintech, insurtech y ecommerce: MVPs y SaaS, tiendas online, landing pages e infraestructura embebida (widgets, SDKs y APIs para partners). Alcance fijo, entregas que puedes probar desde la primera semana y trato directo con quien construye — en remoto, con clientes de USA, UK y LATAM.",
     ctaPrimary: "Empieza ahora",
     ctaSecondary: "Ver proyectos",
   },
@@ -164,7 +163,7 @@ const es: Dictionary = {
     items: [
       {
         name: "ZonaCrono",
-        tag: "Producto propio — inscripciones deportivas",
+        tag: "SaaS de inscripciones para eventos deportivos",
         body: "Los organizadores gestionaban inscripciones por WhatsApp y planillas: caos, errores y horas perdidas. Decisiones técnicas: inscripción y pago online, con reserva atómica de cupos en el checkout para cerrar la condición de carrera que vendía más plazas de las disponibles. Resultado: en producción, con organizadores que pagan por usarlo.",
         url: "https://zonacrono.com",
       },
@@ -172,14 +171,13 @@ const es: Dictionary = {
         name: "Akomo",
         tag: "Datos de tipo de cambio — Venezuela",
         body: "Venezuela opera con dos tasas de cambio a la vez, sin una fuente única que registre ambas en el tiempo. Decisiones técnicas: el bolívar (VES) frente a USD, EUR y USDT desde el BCV y Binance P2P, sobre un log append-only: cada sync agrega una fila, ninguna se actualiza. Resultado: todo lo demás es una superficie sobre ese log — ese es el foso.",
-        // url vacío: aún sin URL pública. Cases.tsx omite el enlace cuando url === "".
-        url: "",
+        url: "https://akomo.xyz",
       },
     ],
   },
   industries: {
     heading: "Industrias",
-    intro: "Producto y arquitectura para sectores donde el dinero debe cuadrar.",
+    intro: "Producto y arquitectura para fintech, insurtech y ecommerce.",
     items: [
       {
         name: "Fintech",
@@ -190,7 +188,7 @@ const es: Dictionary = {
         body: "Plataforma de retención embebida dentro de los portales de aseguradoras del Reino Unido.",
       },
       {
-        name: "Lending",
+        name: "Ecommerce",
         body: "[PLACEHOLDER]",
       },
     ],
@@ -221,30 +219,30 @@ const es: Dictionary = {
     packages: [
       {
         title: "MVP funcional",
-        price: "desde $4.000-5.000",
+        price: "desde $1.800",
         body: "Tu idea convertida en producto real en 4-6 semanas: diseño, desarrollo, despliegue, integraciones de pago o de terceros y 30 días de soporte. Alcance fijo, fecha de lanzamiento clara y trato directo con quien lo construye.",
       },
       {
         title: "Landing page / sitio de producto / Ecommerce",
-        price: "desde $[PLACEHOLDER]",
-        body: "Una página diseñada para convertir: presenta tu producto, capta usuarios o valida tu idea antes de construirla. Diseño a medida, analítica y despliegue incluidos. Lista y publicada en días, no meses.",
+        price: "desde $300",
+        body: "Una página diseñada para convertir: presenta tu producto, capta usuarios o valida tu idea antes de construirla. Diseño a medida, analítica y despliegue incluidos. Landing o tienda online lista y publicada en días, no meses.",
       },
       {
         title: "Iteración continua",
-        price: "desde $[PLACEHOLDER]/mes",
+        price: "desde $300/mes",
         body: "Tu producto no se detiene después del lanzamiento: mejoras, soporte y nuevas funcionalidades cada mes, con horas de dedicación garantizadas y prioridad en la agenda.",
       },
     ],
   },
   about: {
     photoLabel: "Jesus O., fundador de VanguardDevs",
-    bio: "Jesus O. es el fundador de VanguardDevs, estudio de producto especializado en MVPs y SaaS. Ocho años como desarrollador full-stack, con foco en fintech e insurtech, trabajando en remoto para clientes del Reino Unido, Estados Unidos y LATAM desde Venezuela. A diferencia de una agencia tradicional, trabajas directamente con él — quien diseña la solución es quien la construye. Tiene producto propio en producción y con clientes que pagan (ZonaCrono, plataforma de inscripciones deportivas). Su enfoque: lanzar rápido, validar con usuarios reales, iterar.",
+    bio: "Jesus O. es el fundador de VanguardDevs, estudio de producto especializado en MVPs, SaaS y ecommerce. Ocho años como desarrollador full-stack, con foco en fintech, insurtech y ecommerce, trabajando en remoto para clientes del Reino Unido, Estados Unidos y LATAM desde Venezuela. A diferencia de una agencia tradicional, trabajas directamente con él — quien diseña la solución es quien la construye. Tiene producto propio en producción y con clientes que pagan (ZonaCrono, plataforma de inscripciones deportivas). Su enfoque: lanzar rápido, validar con usuarios reales, iterar.",
   },
   profile: {
     meta: {
       title: "Jesus Ordosgoitty — Fundador de VanguardDevs",
       description:
-        "Jesus Ordosgoitty, desarrollador full-stack y fundador de VanguardDevs. Ocho años construyendo producto en fintech e insurtech para clientes de Reino Unido, Estados Unidos y LATAM.",
+        "Jesus Ordosgoitty, desarrollador full-stack y fundador de VanguardDevs. Ocho años construyendo producto en fintech, insurtech y ecommerce para clientes de Reino Unido, Estados Unidos y LATAM.",
     },
     name: "Jesus Ordosgoitty",
     role: "Fundador de VanguardDevs · Desarrollador full-stack",
@@ -257,7 +255,7 @@ const es: Dictionary = {
   },
   contact: {
     heading: "Contacto",
-    secLabel: "Contacto",
+    secLabel: "¿Estás listo?",
     cta: "Empieza ahora",
     // Solo se renderiza en /en; en /es el CTA primario sigue siendo WhatsApp.
     bookingCta: "Agenda una llamada",
@@ -265,7 +263,6 @@ const es: Dictionary = {
     socialInstagram: "Instagram",
   },
   footer: {
-    tagline: "vanguarddevs.com",
     privacyLink: "Privacidad",
     cookieSettings: "Cookies",
   },
@@ -330,10 +327,10 @@ const es: Dictionary = {
     title: "VanguardDevs",
     subtitle: "Asistente · respuestas en segundos",
     greeting:
-      "Hola 👋 Pregunta por los paquetes, el proceso o los tiempos de entrega.",
+      "Hola 👋 Pregunta por MVPs, SaaS, tiendas online, landing pages, precios o tiempos de entrega.",
     suggestions: [
       "¿Cuánto cuesta un MVP?",
-      "¿En cuánto tiempo se entrega?",
+      "¿Cuánto cuesta una landing o tienda online?",
       "¿Cómo es el proceso?",
     ],
     placeholder: "Escribe tu pregunta",
@@ -349,10 +346,10 @@ const es: Dictionary = {
 
 const en: Dictionary = {
   meta: {
-    title: "VanguardDevs — Fintech, insurtech & multi-tenant SaaS MVPs",
+    title: "VanguardDevs — Product studio: MVPs, SaaS & ecommerce",
     description:
-      "Boutique product studio: MVPs, multi-tenant SaaS and embedded infrastructure for fintech, insurtech and lending. Ledgers that balance. USA, UK and LATAM.",
-    ogAlt: "VanguardDevs — Fintech, insurtech & multi-tenant SaaS MVPs",
+      "Product studio for fintech, insurtech and ecommerce: MVPs, SaaS, online stores, landing pages and embedded infrastructure. Shipped in weeks, not months. USA, UK and LATAM.",
+    ogAlt: "VanguardDevs — Product studio: MVPs, SaaS & ecommerce",
   },
   nav: {
     cases: "Projects",
@@ -368,7 +365,7 @@ const en: Dictionary = {
     headlineStart:
       "Your idea turned into a working product in the hands of real users —",
     headlineAccent: "in weeks, not months.",
-    sub: "A product studio for fintech, insurtech and lending: MVPs, multi-tenant SaaS and embedded infrastructure — widgets, SDKs and partner APIs. Built for systems where the money has to balance: ledgers, reconciliation, redemptions, payment integrations. Remote, with clients in the USA, UK and LATAM.",
+    sub: "A product studio for fintech, insurtech and ecommerce: MVPs and SaaS, online stores, landing pages and embedded infrastructure — widgets, SDKs and partner APIs. Fixed scope, deliverables you can click through from week one, and a direct line to the person building it. Remote, with clients in the USA, UK and LATAM.",
     ctaPrimary: "Start now",
     ctaSecondary: "See projects",
   },
@@ -377,7 +374,7 @@ const en: Dictionary = {
     items: [
       {
         name: "ZonaCrono",
-        tag: "Own product — race registration",
+        tag: "Registration SaaS for sport events",
         body: "Organizers ran registrations through WhatsApp and spreadsheets: chaos, errors and lost hours. Technical decisions: online registration and payment, with atomic slot reservation at checkout to close the race condition that oversold places when several people paid at once. Result: in production, with paying organizers.",
         url: "https://zonacrono.com",
       },
@@ -385,14 +382,13 @@ const en: Dictionary = {
         name: "Akomo",
         tag: "Exchange-rate data — Venezuela",
         body: "Venezuela runs on two exchange rates at once, with no single source recording both over time. Technical decisions: the bolívar (VES) against USD, EUR and USDT from the central bank (BCV) and Binance P2P, on an append-only log — every sync appends a row, none are updated. Result: everything else is a surface over that log, and the log is the moat.",
-        // Empty url: no public URL yet. Cases.tsx skips the link when url === "".
-        url: "",
+        url: "https://akomo.xyz",
       },
     ],
   },
   industries: {
     heading: "Industries",
-    intro: "Product and architecture for sectors where the money has to balance.",
+    intro: "Product and architecture for fintech, insurtech and ecommerce.",
     items: [
       {
         name: "Fintech",
@@ -403,7 +399,7 @@ const en: Dictionary = {
         body: "A retention platform embedded inside UK insurer portals.",
       },
       {
-        name: "Lending",
+        name: "Ecommerce",
         body: "[PLACEHOLDER]",
       },
     ],
@@ -434,30 +430,30 @@ const en: Dictionary = {
     packages: [
       {
         title: "Functional MVP",
-        price: "from $4,000-5,000",
+        price: "from $1,800",
         body: "Your idea turned into a real product in 4-6 weeks: design, development, deployment, payment or third-party integrations, and 30 days of support. Fixed scope, a clear launch date, and you deal directly with the person who builds it.",
       },
       {
         title: "Landing page / product site / Ecommerce",
-        price: "from $[PLACEHOLDER]",
-        body: "A page designed to convert: showcase your product, capture users, or validate your idea before you build it. Custom design, analytics, and deployment included. Live and published in days, not months.",
+        price: "from $300",
+        body: "A page designed to convert: showcase your product, capture users, or validate your idea before you build it. Custom design, analytics, and deployment included. Landing or online store, live and published in days, not months.",
       },
       {
         title: "Ongoing iteration",
-        price: "from $[PLACEHOLDER]/mo",
+        price: "from $300/mo",
         body: "Your product doesn't stop after launch: improvements, support, and new features every month, with guaranteed dedicated hours and priority scheduling.",
       },
     ],
   },
   about: {
     photoLabel: "Jesus O., founder of VanguardDevs",
-    bio: "Jesus O. is the founder of VanguardDevs, a product studio specialized in MVPs and SaaS. Eight years as a full-stack developer, focused on fintech and insurtech, working remotely for clients in the UK, the USA and LATAM from Venezuela. Unlike a traditional agency, you work directly with him — the person who designs the solution is the one who builds it. He runs his own product in production with paying customers (ZonaCrono, a sports registration platform). His approach: launch fast, validate with real users, iterate.",
+    bio: "Jesus O. is the founder of VanguardDevs, a product studio specialized in MVPs, SaaS and ecommerce. Eight years as a full-stack developer, focused on fintech, insurtech and ecommerce, working remotely for clients in the UK, the USA and LATAM from Venezuela. Unlike a traditional agency, you work directly with him — the person who designs the solution is the one who builds it. He runs his own product in production with paying customers (ZonaCrono, a sports registration platform). His approach: launch fast, validate with real users, iterate.",
   },
   profile: {
     meta: {
       title: "Jesus Ordosgoitty — Founder of VanguardDevs",
       description:
-        "Jesus Ordosgoitty, full-stack developer and founder of VanguardDevs. Eight years building product in fintech and insurtech for clients in the UK, the USA and LATAM.",
+        "Jesus Ordosgoitty, full-stack developer and founder of VanguardDevs. Eight years building product in fintech, insurtech and ecommerce for clients in the UK, the USA and LATAM.",
     },
     name: "Jesus Ordosgoitty",
     role: "Founder of VanguardDevs · Full-stack developer",
@@ -470,7 +466,7 @@ const en: Dictionary = {
   },
   contact: {
     heading: "Contact",
-    secLabel: "Contact",
+    secLabel: "Are you ready?",
     cta: "Start now",
     // Rendered on /en only — the booking link is the primary CTA here; /es keeps WhatsApp.
     bookingCta: "Book a call",
@@ -478,7 +474,6 @@ const en: Dictionary = {
     socialInstagram: "Instagram",
   },
   footer: {
-    tagline: "vanguarddevs.com",
     privacyLink: "Privacy",
     cookieSettings: "Cookies",
   },
@@ -541,11 +536,12 @@ const en: Dictionary = {
   chat: {
     title: "VanguardDevs",
     subtitle: "Assistant · answers in seconds",
-    greeting: "Hi 👋 Ask about packages, the process or delivery times.",
+    greeting:
+      "Hi 👋 Ask about MVPs, SaaS, online stores, landing pages, pricing or delivery times.",
     suggestions: [
-      "How much does an MVP cost?",
-      "How long does delivery take?",
-      "What does the process look like?",
+      "How much is an MVP?",
+      "How much is a landing page or online store?",
+      "How does the process work?",
     ],
     placeholder: "Type your question",
     send: "Send message",

@@ -509,6 +509,42 @@ h1 .line-word {
   margin-top: 28px;
 }
 
+/* ---------- content reveal ----------
+   Cards, steps and notes fade/slide in as they enter the viewport (the same
+   move as the personal site's AnimatedContent: +48px → 0, opacity 0 → 1,
+   siblings staggered). Scroll-driven, no JS: browsers without view timelines
+   and prefers-reduced-motion simply show the content. */
+@supports (animation-timeline: view()) {
+  .pkg,
+  .svc,
+  .step,
+  .next,
+  .contact .row {
+    animation: content-in ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 55%;
+  }
+  .pkg:nth-child(2),
+  .svc:nth-child(2),
+  .step:nth-child(2) {
+    animation-range: entry 12% entry 67%;
+  }
+  .pkg:nth-child(3),
+  .step:nth-child(3) {
+    animation-range: entry 24% entry 79%;
+  }
+  .step:nth-child(4) {
+    animation-range: entry 36% entry 91%;
+  }
+}
+
+@keyframes content-in {
+  from {
+    opacity: 0;
+    transform: translateY(48px);
+  }
+}
+
 /* ---------- section scaffolding ---------- */
 section {
   border-bottom: var(--rule);

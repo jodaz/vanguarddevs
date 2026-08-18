@@ -415,6 +415,14 @@ h1 {
   color: var(--paper);
 }
 
+/* brand line above the pitch: tracked-out mono in the accent */
+.hero-brand {
+  color: var(--signal-text);
+  font-size: 14px;
+  letter-spacing: 0.32em;
+  margin-bottom: clamp(16px, 2.5vh, 32px);
+}
+
 h1 .line-word {
   color: var(--signal-text);
 }

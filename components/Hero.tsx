@@ -41,6 +41,7 @@ export default function Hero({
           glowColor={DOT_GLOW}
         />
       </div>
+      <p className="mono hero-brand">VanguardDevs</p>
       <h1 className="display">
         {dict.hero.headlineStart}{" "}
         <span className="line-word">{dict.hero.headlineAccent}</span>{" "}

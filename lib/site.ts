@@ -2,7 +2,7 @@
 import type { Locale } from "@/lib/i18n";
 
 export const WHATSAPP_URL = "https://wa.me/584248270139";
-export const CONTACT_EMAIL = "hello@vanguarddevs.com";
+export const CONTACT_EMAIL = "jesus@vanguarddevs.com";
 export const LINKEDIN_URL = "https://www.linkedin.com/company/vanguarddevs";
 export const INSTAGRAM_URL = "https://instagram.com/vanguarddevs";
 // Founder's own site, linked from the footer.

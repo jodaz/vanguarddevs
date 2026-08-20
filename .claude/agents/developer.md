@@ -18,7 +18,7 @@ You are the developer agent for the VanguardDevs site: Next.js App Router + Type
 
 ## Best practices to apply
 
-DRY across section components (they share the dict-driven pattern); keyed lists from data, not copy-pasted JSX; accessibility (focus-visible styles exist — keep them; `aria-hidden` on decorative marks; valid HTML nesting — no divs inside headings/links); `prefers-reduced-motion` respected for any animation you touch; images through `next/image` when real images land (founder photo is a pending placeholder).
+DRY across section components (they share the dict-driven pattern); keyed lists from data, not copy-pasted JSX; accessibility (focus-visible styles exist — keep them; `aria-hidden` on decorative marks; valid HTML nesting — no divs inside headings/links); `prefers-reduced-motion` respected for any animation you touch; images through `next/image` when real images land.
 
 ## Workflow
 

@@ -11,11 +11,6 @@ Landing page (`/es`, `/en`): Hero → Case studies (`#cases`) → Process + pack
 (`#process`) → Contact (`#contact`). Primary CTA is WhatsApp on `/es`; on `/en`
 it switches to a booking link once `BOOKING_URL` is filled in. No forms.
 
-Founder profile (`/es/jodaz`, `/en/jodaz`): two columns — name, role, bio and
-social links beside the photo — with a light/dark toggle scoped to that page.
-It renders the same `about.bio` copy the dictionary already holds, so the
-introduction is defined once.
-
 `components/Industries.tsx` is built and compiles but is intentionally not
 mounted; re-add it to `app/[lang]/page.tsx` (and its `#industries` link to
 `Header.tsx`) to bring the section back.
@@ -24,8 +19,6 @@ Pending `[PLACEHOLDER]`s before launch (search the codebase for `PLACEHOLDER`):
 the Calendly/booking URL (`BOOKING_URL` in `lib/site.ts`, which gates the English
 primary CTA), two client testimonials, two package prices, the Akomo case body
 and the `lending` industry line (`lib/dictionaries.ts`).
-Unverified rather than absent: `LINKEDIN_PERSONAL_URL` is inferred from the
-`jodaz` handle and should be confirmed.
 Also pending: the real GA4 measurement ID (`NEXT_PUBLIC_GA_ID` in `.env.example`),
 the legal entity name and jurisdiction backing the privacy policy, a
 dedicated DPO/privacy contact (may reuse `CONTACT_EMAIL` or need its own),
@@ -46,7 +39,7 @@ npm run build  # production build (fully static pages)
 - `app/[lang]/` — one statically generated page per locale (`/es`, `/en`).
   Spanish is the default/x-default locale per brand guidelines.
 - `middleware.ts` — 307-redirects any unprefixed path to its locale version
-  (`/` → `/es`, `/jodaz` → `/es/jodaz`) based on `Accept-Language` (Spanish wins
+  (`/` → `/es`, `/privacy` → `/es/privacy`) based on `Accept-Language` (Spanish wins
   on ambiguity). `/es/*` and `/en/*` pass through; the matcher skips Next
   internals and anything with a file extension, which is what keeps
   `robots.txt`, `sitemap.xml` and `/public` assets out of it.
@@ -54,8 +47,8 @@ npm run build  # production build (fully static pages)
 - `app/globals.css` — the brand system (Fog / Obsidian / Voltage Violet), built
   on hairline rules and generous whitespace, with contrast carried by type scale
   rather than heavy borders. All colour goes through semantic tokens; body text
-  must clear 4.5:1 on both `--paper` and the `--tint` hover surface. Dark mode is
-  scoped to the profile page only.
+  must clear 4.5:1 on both `--paper` and the `--tint` hover surface. The site has
+  no dark mode.
 - `lib/fonts.ts` — self-hosted fonts (Anton, Archivo, IBM Plex Mono) via `next/font` —
   no external font requests, zero layout shift. Shared by the `[lang]` layout and the
   root 404 fallback (see below).
@@ -76,8 +69,6 @@ npm run build  # production build (fully static pages)
   areaServed), `WebSite`, `WebPage`.
 - `sitemap.xml` and `robots.txt` generated from code (`app/sitemap.ts`, `app/robots.ts`).
 - Per-locale Open Graph image generated at build (`app/[lang]/opengraph-image.tsx`).
-- `Person` JSON-LD on the profile page, so the founder's name is searchable and
-  resolves to this domain rather than a third-party profile.
 - Titles and descriptions carry the positioning keywords (fintech, insurtech,
   multi-tenant SaaS, MVP).
 - Static generation (SSG) for both pages → fast TTFB and Core Web Vitals;
@@ -91,7 +82,6 @@ npm run build  # production build (fully static pages)
    style local queries) and link it to the site.
 4. Keep publishing: the fastest ranking lever for a new domain is content —
    consider a `/notes` or case-study section fed by the Instagram "Field notes"
-   pillar (P2 in the brand guide). Deferred by the owner for now, along with the
-   CV download and live demo widget once floated for the profile page.
+   pillar (P2 in the brand guide). Deferred by the owner for now.
 5. Collect the two client testimonials — the render path is already wired, so
    they only need pasting into the `testimonial` fields in `lib/dictionaries.ts`.

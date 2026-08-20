@@ -69,25 +69,11 @@ export interface Dictionary {
     venezuelaCta: string;
     packages: PackageItem[];
   };
-  /* Rendered only by /[lang]/jodaz — the landing page no longer has an
-     About section, but the profile page still uses this copy. */
+  /* Not rendered on any page — feeds only the chat system prompt
+     (lib/chat-prompt.ts), so the assistant can talk about the founder. */
   about: {
     photoLabel: string;
     bio: string;
-  };
-  /* /[lang]/jodaz — the founder profile page. Body copy is deliberately NOT
-     duplicated here: the page renders `about.bio` and `about.photoLabel`, so
-     the introduction stays defined in exactly one place. */
-  profile: {
-    meta: { title: string; description: string };
-    name: string;
-    role: string;
-    back: string;
-    socialGithub: string;
-    socialLinkedin: string;
-    themeLabel: string;
-    themeLight: string;
-    themeDark: string;
   };
   contact: {
     heading: string;
@@ -252,21 +238,6 @@ const es: Dictionary = {
   about: {
     photoLabel: "Jesus O., fundador de VanguardDevs",
     bio: "Jesus O. es el fundador de VanguardDevs, estudio de producto especializado en MVPs, SaaS y ecommerce. Ocho años como desarrollador full-stack, con foco en fintech, insurtech y ecommerce, trabajando en remoto para clientes del Reino Unido, Estados Unidos y LATAM desde Venezuela. A diferencia de una agencia tradicional, trabajas directamente con él — quien diseña la solución es quien la construye. Tiene producto propio en producción y con clientes que pagan (ZonaCrono, plataforma de inscripciones deportivas). Su enfoque: lanzar rápido, validar con usuarios reales, iterar.",
-  },
-  profile: {
-    meta: {
-      title: "Jesus Ordosgoitty — Fundador de VanguardDevs",
-      description:
-        "Jesus Ordosgoitty, desarrollador full-stack y fundador de VanguardDevs. Ocho años construyendo producto en fintech, insurtech y ecommerce para clientes de Reino Unido, Estados Unidos y LATAM.",
-    },
-    name: "Jesus Ordosgoitty",
-    role: "Fundador de VanguardDevs · Desarrollador full-stack",
-    back: "Volver a VanguardDevs",
-    socialGithub: "GitHub",
-    socialLinkedin: "LinkedIn",
-    themeLabel: "Tema",
-    themeLight: "Claro",
-    themeDark: "Oscuro",
   },
   contact: {
     heading: "Contacto",
@@ -469,21 +440,6 @@ const en: Dictionary = {
   about: {
     photoLabel: "Jesus O., founder of VanguardDevs",
     bio: "Jesus O. is the founder of VanguardDevs, a product studio specialized in MVPs, SaaS and ecommerce. Eight years as a full-stack developer, focused on fintech, insurtech and ecommerce, working remotely for clients in the UK, the USA and LATAM from Venezuela. Unlike a traditional agency, you work directly with him — the person who designs the solution is the one who builds it. He runs his own product in production with paying customers (ZonaCrono, a sports registration platform). His approach: launch fast, validate with real users, iterate.",
-  },
-  profile: {
-    meta: {
-      title: "Jesus Ordosgoitty — Founder of VanguardDevs",
-      description:
-        "Jesus Ordosgoitty, full-stack developer and founder of VanguardDevs. Eight years building product in fintech, insurtech and ecommerce for clients in the UK, the USA and LATAM.",
-    },
-    name: "Jesus Ordosgoitty",
-    role: "Founder of VanguardDevs · Full-stack developer",
-    back: "Back to VanguardDevs",
-    socialGithub: "GitHub",
-    socialLinkedin: "LinkedIn",
-    themeLabel: "Theme",
-    themeLight: "Light",
-    themeDark: "Dark",
   },
   contact: {
     heading: "Contact",

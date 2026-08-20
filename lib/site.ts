@@ -8,10 +8,6 @@ export const INSTAGRAM_URL = "https://instagram.com/vanguarddevs";
 // Founder's own site, linked from the footer.
 export const JODAZ_URL = "https://jodaz.vanguarddevs.com";
 
-/* Personal accounts, used only by the /jodaz profile page — the LINKEDIN_URL
-   and INSTAGRAM_URL above are the VanguardDevs company accounts. */
-export const GITHUB_PERSONAL_URL = "https://github.com/jodaz";
-export const LINKEDIN_PERSONAL_URL = "https://www.linkedin.com/in/jodaz";
 // Owner hasn't supplied the Calendly URL yet; while it's "PLACEHOLDER" the
 // /en contact section keeps WhatsApp as its primary CTA.
 export const BOOKING_URL = "PLACEHOLDER";

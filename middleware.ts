@@ -2,12 +2,12 @@ import { NextRequest, NextResponse } from "next/server";
 import { defaultLocale, isLocale } from "./lib/i18n";
 
 // Every unprefixed path negotiates a language and redirects to its locale
-// version (/ → /es, /jodaz → /es/jodaz). /es/* and /en/* are the canonical,
+// version (/ → /es, /privacy → /es/privacy). /es/* and /en/* are the canonical,
 // indexable URLs advertised via hreflang and are passed through untouched.
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  // "/es/jodaz" → ["", "es", "jodaz"]; already localised, nothing to do.
+  // "/es/privacy" → ["", "es", "privacy"]; already localised, nothing to do.
   if (isLocale(pathname.split("/")[1])) return NextResponse.next();
 
   const acceptLanguage = request.headers.get("accept-language") ?? "";
@@ -26,6 +26,6 @@ export const config = {
   // file extension. Without the api/ exclusion /api/chat would 307 to
   // /es/api/chat. The extension rule is what keeps the root metadata routes and /public
   // assets out: robots.txt, sitemap.xml, icon.svg, apple-icon.png,
-  // manifest.webmanifest, favicon.ico, founder.jpeg.
+  // manifest.webmanifest, favicon.ico.
   matcher: ["/((?!_next/|api/|.*\\.).*)"],
 };
